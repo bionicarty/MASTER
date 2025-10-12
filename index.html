@@ -6,23 +6,20 @@
   <title>MASTER English</title>
   <style>
     /* === RESET === */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * {margin:0; padding:0; box-sizing:border-box;}
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #0f0f0f;
       color: #fff;
       overflow-x: hidden;
+      line-height: 1.5;
     }
 
     /* === HEADER === */
     header {
-      width: 100%;
-      height: 90px;
+      width: 1920px; /* largura fixa da header */
+      max-width: 100%;
+      height: 90px; /* altura exata */
       background: #000 url("images/header.png") no-repeat center center;
       background-size: cover;
       display: flex;
@@ -35,150 +32,188 @@
       z-index: 100;
     }
 
+    .logo a {
+      color:#0ff0fc; 
+      font-size:22px; 
+      font-weight:700; 
+      text-decoration:none;
+    }
+
     nav ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 40px;
+      list-style:none;
+      display:flex;
+      gap:40px;
     }
 
-    nav ul li {
-      position: relative;
-    }
-
+    nav ul li {position:relative;}
     nav a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: color 0.3s ease;
+      color:#fff;
+      text-decoration:none;
+      font-weight:500;
+      transition: color 0.3s;
     }
+    nav a:hover {color:#0ff0fc;}
 
-    nav a:hover {
-      color: #0ff0fc;
-    }
-
-    /* === SUBMENU === */
+    /* SUBMENU */
     nav ul ul {
-      display: none;
-      position: absolute;
-      top: 35px;
-      left: 0;
-      background-color: #111;
-      padding: 15px 0;
-      border-radius: 8px;
-      min-width: 160px;
-      flex-direction: column;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      display:none;
+      position:absolute;
+      top:35px;
+      left:0;
+      background-color:#111;
+      padding:15px 0;
+      border-radius:8px;
+      min-width:160px;
+      flex-direction:column;
+      box-shadow:0 4px 10px rgba(0,0,0,0.5);
     }
+    nav ul li:hover > ul {display:flex;}
+    nav ul ul li {padding:8px 20px;}
+    nav ul ul a {font-size:14px;}
 
-    nav ul li:hover > ul {
-      display: flex;
-    }
-
-    nav ul ul li {
-      padding: 8px 20px;
-    }
-
-    nav ul ul a {
-      font-size: 14px;
-    }
-
-    /* === HERO (INTRO) === */
+    /* === HERO === */
     .hero {
-      margin-top: 90px; /* compensate for fixed header */
-      height: 1080px;
-      background-color: #101820;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
+      margin-top: 90px; /* compensa header fixa */
+      height:1080px; /* altura da primeira dobra */
+      background-color:#101820;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
     }
+    .hero h1 {font-size:48px; color:#00bcd4; margin-bottom:20px;}
+    .hero p {font-size:20px; color:#e0e0e0; max-width:700px;}
 
-    .hero h1 {
-      font-size: 48px;
-      color: #00bcd4;
-      margin-bottom: 20px;
+    /* === POR QUE MASTER? === */
+    :root{
+      --title-color:#fe5f55;
+      --bg:#0f1720;
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.75);
+      --max-width:1000px;
+      --radius:12px;
     }
-
-    .hero p {
-      font-size: 20px;
-      color: #e0e0e0;
-      max-width: 700px;
+    .container {
+      width:100%;
+      max-width:var(--max-width);
+      background: rgba(255,255,255,0.03);
+      border-radius:var(--radius);
+      padding:36px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+      margin:50px auto 100px auto;
+    }
+    header.master-section {margin-bottom:28px;}
+    .eyebrow {display:inline-block; font-size:13px; color:var(--muted); margin-bottom:8px; text-transform:uppercase; letter-spacing:1px;}
+    h2, h1 {color:var(--title-color);}
+    h1 {margin:0 0 10px 0; font-size:28px; line-height:1.05;}
+    p.lead {margin:0; color:var(--muted); font-size:15px;}
+    section{margin-top:22px;}
+    p{margin:0 0 14px 0; color:var(--text); font-size:15px;}
+    .grid{display:grid; grid-template-columns:1fr 320px; gap:24px; align-items:start;}
+    .card{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:10px; padding:18px;}
+    .btn{display:inline-block; background:var(--title-color); color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; box-shadow: 0 6px 18px rgba(254,95,85,0.12);}
+    .muted{color:var(--muted); font-size:14px;}
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr;}
+      .container{padding:24px}
+      h1{font-size:24px}
     }
 
     /* === PLACEHOLDER SECTIONS === */
-    section {
-      padding: 100px 10%;
-      text-align: center;
-    }
-
-    .placeholder {
-      color: #888;
-      border-top: 1px solid #222;
-    }
+    section.placeholder{padding:100px 10%; text-align:center; color:#888; border-top:1px solid #222;}
   </style>
 </head>
 <body>
 
+  <!-- HEADER FIXA COM ARTE -->
   <header>
-    <div class="logo">
-      <a href="#" style="color:#0ff0fc; font-size:22px; font-weight:700; text-decoration:none;">MASTER English</a>
-    </div>
+    <div class="logo"><a href="#">MASTER English</a></div>
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
         <li>
           <a href="#">Cursos ▾</a>
           <ul>
-            <li><a href="#">English Flow (Regular)</a></li>
-            <li><a href="#">Immersion Lab (Imersivo)</a></li>
-            <li><a href="#">HealthTalk (Área da Saúde)</a></li>
+            <li><a href="cursos/regular.html">English Flow (Regular)</a></li>
+            <li><a href="cursos/imersivo.html">Immersion Lab (Imersivo)</a></li>
+            <li><a href="cursos/saude.html">HealthTalk (Área da Saúde)</a></li>
           </ul>
         </li>
         <li>
           <a href="#">Master ▾</a>
           <ul>
-            <li><a href="#">Quem somos</a></li>
-            <li><a href="#">Teste seu inglês</a></li>
+            <li><a href="master/quem-somos.html">Quem somos</a></li>
+            <li><a href="master/teste.html">Teste seu inglês</a></li>
           </ul>
         </li>
-        <li><a href="#">Blog</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <h1>Bem-vindo à MASTER English</h1>
     <p>Aprenda inglês de forma moderna, criativa e voltada à sua área profissional.</p>
   </section>
 
-  <section class="placeholder">
-    <h2>Por que MASTER?</h2>
-    <p>(Seção em breve)</p>
-  </section>
+  <!-- POR QUE MASTER? -->
+  <div class="container" role="main">
+    <header class="master-section">
+      <div class="eyebrow">Por que a MASTER English?</div>
+      <h1>MASTER English — uma experiência completa de aprendizado</h1>
+      <p class="lead">Mais do que uma escola de idiomas, oferecemos uma formação dinâmica, personalizada e comprovada para que você pense, fale e viva o inglês.</p>
+    </header>
 
-  <section class="placeholder">
-    <h2>Metodologia</h2>
-    <p>(Conteúdo em breve)</p>
-  </section>
+    <div class="grid">
+      <div>
+        <section class="card">
+          <h2>Metodologia ativa e comprovada</h2>
+          <p>O programa foi desenvolvido para promover imersão e produção real do idioma, independente do nível inicial do aluno. As aulas estimulam a autonomia e o pensamento crítico, favorecendo uma aprendizagem natural e duradoura.</p>
 
-  <section class="placeholder">
-    <h2>Tipos de Curso</h2>
-    <p>(Caixinhas em breve)</p>
-  </section>
+          <h2>Início em qualquer etapa — trajetória clara até o avançado</h2>
+          <p>O aluno pode ingressar em qualquer nível, do básico ao avançado. A estrutura foi planejada para garantir progressão consistente, com objetivo de alcançar fluência real em até 2 anos.</p>
 
-  <section class="placeholder">
-    <h2>Blog e Depoimentos</h2>
-    <p>(Carrossel de conteúdo em breve)</p>
-  </section>
+          <h2>Foco em conversação e situações reais</h2>
+          <p>As aulas são centradas em conversação, resolução de problemas e cenários do dia a dia, tornando o conteúdo prático e aplicável ao mundo real — no trabalho, em viagens e na vida acadêmica.</p>
 
-  <section class="placeholder">
-    <h2>Sobre Teacher Lari</h2>
-    <p>(Apresentação em breve)</p>
-  </section>
+          <h2>Recursos exclusivos e acompanhamento diário</h2>
+          <p>Oferecemos imersão total no idioma, acompanhamento diário e material exclusivo, desenvolvido do zero para os alunos MASTER, assegurando evolução consistente e personalizada.</p>
+        </section>
+
+        <section class="card" style="margin-top:18px;">
+          <h2>MASTER HealthTalk</h2>
+          <p>Pensando em profissionais da saúde, a MASTER desenvolveu o <strong>HealthTalk</strong> — o primeiro curso de imersão em inglês voltado especificamente para a área da saúde, criado e conduzido por uma profissional da saúde.</p>
+
+          <p>A proposta integra linguagem técnica e cenários reais de rotinas hospitalares e clínicas, proporcionando segurança para comunicação em atendimentos, entrevistas, congressos e experiências internacionais.</p>
+
+          <p>Com a mesma metodologia ativa e imersiva, o HealthTalk combina conhecimento técnico, fluência comunicativa e pensamento crítico, preparando o aluno para se destacar no Brasil e no exterior.</p>
+        </section>
+
+        <footer style="margin-top:20px;">
+          <p class="muted">MASTER English — onde o inglês e o seu futuro falam a mesma língua.</p>
+        </footer>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h2>Pronto para começar?</h2>
+          <p>Matricule-se em qualquer nível ou agende uma aula experimental para avaliarmos seu ponto de partida.</p>
+          <div style="margin-top:12px;">
+            <a class="btn" href="#contato">Saiba mais</a>
+          </div>
+          <p class="muted" style="margin-top:12px;">Copie e salve este arquivo como <code>index.html</code> no seu projeto.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- PLACEHOLDER PARA OUTRAS SEÇÕES -->
+  <section class="placeholder">Seção Metodologia (em breve)</section>
+  <section class="placeholder">Tipos de Curso (em breve)</section>
+  <section class="placeholder">Blog e Depoimentos (em breve)</section>
+  <section class="placeholder">Sobre Teacher Lari (em breve)</section>
 
 </body>
 </html>
