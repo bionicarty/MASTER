@@ -1,0 +1,358 @@
+<!--
+MASTER HealthTalk - Static site template (index.html)
+Palette: Vital English
+Primary: #3AAFA9 | Secondary: #DEF2F1 | Dark Accent: #17252A | Vibrant Accent: #FE5F55
+
+INSTRUCTIONS:
+- This is a single-file website (HTML + CSS + JS) ready for GitHub Pages.
+- Replace all placeholder images (src="/assets/...") with your assets.
+- To publish on GitHub Pages: create a repo named e.g. master-healthtalk, add this file as index.html to the root, push, then enable Pages in repo settings (branch: main / root). URL will be https://<youruser>.github.io/<repo> or https://<youruser>.github.io if you use the repo named <youruser>.github.io.
+- WhatsApp button uses international phone: +55 11 98259-5575. If you want another number, edit the variable `WHATSAPP_NUMBER` in the script section.
+- Image size suggestions (examples):
+  - Hero banner: 1920 x 700 px
+  - Course card images: 1200 x 675 px (16:9) or 1080 x 720
+  - Social/Vlog thumbnails: 1280 x 720 (YouTube standard) or 1080 x 1080 for square cards
+
+ABOUT CONTENT/SEO:
+- Edit the text content/metadata to reflect your courses.
+- You can embed YouTube videos by replacing the iframe src with your video links.
+
+Enjoy — Teacher Lari / MASTER HealthTalk
+-->
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MASTER HealthTalk — English for Healthcare Professionals</title>
+  <meta name="description" content="MASTER HealthTalk — English for Healthcare Professionals. Unlock your voice, unlock your world. Cursos, vlogs e aulas para profissionais da saúde.">
+  <link rel="icon" href="/assets/favicon.png" />
+  <style>
+    :root{
+      --primary: #3AAFA9; /* verde água */
+      --secondary: #DEF2F1; /* verde gelo */
+      --dark: #17252A; /* cinza petróleo */
+      --accent: #FE5F55; /* coral vibrante */
+      --white: #FFFFFF;
+      --muted: #F5F7F8;
+      --text: #17252A;
+      --radius: 12px;
+      --container: 1100px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--white);color:var(--text);line-height:1.45}
+    .wrap{max-width:var(--container);margin:0 auto;padding:24px}
+
+    /* Header */
+    header{background:linear-gradient(90deg,var(--secondary),#ffffff);padding:20px 0;border-bottom:1px solid rgba(23,37,42,.04)}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--primary),#67d3c7);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:18px}
+    .brand h1{margin:0;font-size:18px}
+    .brand p{margin:0;font-size:12px;color:rgba(23,37,42,.7)}
+
+    nav{display:flex;gap:12px;margin-left:auto;align-items:center}
+    .nav-link{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--dark);font-weight:600}
+    .btn-primary{background:var(--primary);color:var(--white);padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-accent{background:var(--accent);color:var(--white);padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    header .top{display:flex;align-items:center;gap:20px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:48px 0}
+    .hero .lead{font-size:28px;margin:0 0 12px}
+    .hero p{margin:0 0 18px;color:rgba(23,37,42,.75)}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+
+    .card{background:var(--white);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(23,37,42,.06)}
+
+    /* Courses */
+    .courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:18px}
+    .course-card img{width:100%;height:150px;object-fit:cover;border-radius:10px}
+    .course-card h3{margin:10px 0 6px;font-size:16px}
+    .course-card p{margin:0 0 12px;color:rgba(23,37,42,.65);font-size:14px}
+
+    /* Vlog */
+    .vlog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    .vlog-thumb{position:relative;border-radius:10px;overflow:hidden}
+    .vlog-thumb img{width:100%;height:160px;object-fit:cover}
+
+    footer{border-top:1px solid rgba(23,37,42,.04);padding:28px 0;margin-top:40px}
+
+    /* Floating whatsapp */
+    .whatsapp{position:fixed;right:18px;bottom:18px;background:linear-gradient(135deg,var(--primary),#58c8bf);border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(23,37,42,.18);z-index:1000}
+    .whatsapp a{color:var(--white);text-decoration:none;font-weight:700}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      nav{display:none}
+    }
+
+    /* Small helpers */
+    .muted{color:rgba(23,37,42,.6);font-size:14px}
+    .pill{background:var(--secondary);padding:6px 8px;border-radius:999px;font-weight:700;font-size:12px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .center{text-align:center}
+
+    /* Footer links */
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+
+    /* Buttons inline */
+    .small-btn{padding:8px 10px;border-radius:8px;text-decoration:none;border:1px solid rgba(23,37,42,.06);background:transparent;color:var(--dark);font-weight:700}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap top">
+    <div style="display:flex;align-items:center;width:100%">
+      <div class="brand">
+        <div class="logo">MH</div>
+        <div>
+          <h1>MASTER HealthTalk</h1>
+          <p>Unlock your voice. Unlock your WORLD. — English for Healthcare Professionals</p>
+        </div>
+      </div>
+
+      <nav style="margin-left:auto">
+        <a class="nav-link" href="#courses">Courses</a>
+        <a class="nav-link" href="#vlog">Vlog</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a class="btn-primary" href="#courses">Explore Courses</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <span class="pill">NEW</span>
+        <span class="muted">Launch — course preview</span>
+      </div>
+
+      <h2 class="lead">MASTER HealthTalk — English for Healthcare Professionals</h2>
+      <p>Empower your clinical communication: practical lessons, real-life dialogues, and video cases to help you speak with confidence in healthcare settings.</p>
+
+      <div class="cta-row">
+        <a class="btn-primary" href="#courses">Explore Courses</a>
+        <a class="btn-accent" href="#vlog">Watch Vlogs</a>
+        <a class="small-btn" href="mailto:teacher.lari@example.com?subject=Quero%20saber%20sobre%20os%20cursos">Contact / Trial</a>
+        <a class="small-btn" href="#subscribe">Subscribe</a>
+      </div>
+
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+        <div class="card" style="min-width:220px;flex:1">
+          <h4 style="margin:0 0 8px">Featured Course</h4>
+          <p style="margin:0 0 12px" class="muted">Medical English Essentials — short preview</p>
+          <div style="display:flex;gap:8px">
+            <a class="small-btn" href="#">Join Preview</a>
+            <a class="small-btn" href="#">Buy Course</a>
+          </div>
+        </div>
+
+        <div class="card" style="min-width:220px;flex:1">
+          <h4 style="margin:0 0 8px">Live Classes</h4>
+          <p class="muted">Weekly conversation practice for healthcare professionals</p>
+          <div style="display:flex;gap:8px">
+            <a class="small-btn" href="#">View Schedule</a>
+            <a class="small-btn" href="#">Book Trial</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <aside>
+      <div class="card center">
+        <h3 style="margin-top:0">Featured Video</h3>
+        <!-- Replace the src with your YouTube video -->
+        <div style="position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allowfullscreen></iframe>
+        </div>
+        <p class="muted" style="margin-top:10px">Quick preview: "Patient Interview — key phrases"</p>
+      </div>
+
+      <div style="margin-top:14px" class="card">
+        <h4 style="margin:0 0 8px">Mini Bio</h4>
+        <p class="muted">Teacher Lari — Nurse turned English Teacher. Specialised courses for nurses, doctors and allied health professionals.</p>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <a class="small-btn" href="#about">About</a>
+          <a class="small-btn" href="#contact">Contact</a>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses">
+    <h2>Courses</h2>
+    <p class="muted">From essentials to advanced communication: structured modules and practical cases.</p>
+
+    <div class="courses">
+      <div class="course-card card">
+        <img src="/assets/course-medical-essentials.jpg" alt="Medical English Essentials">
+        <h3>Medical English Essentials</h3>
+        <p class="muted">Core vocabulary, patient interview, clinical handover.</p>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <a class="small-btn" href="#">Preview</a>
+          <a class="btn-primary" href="#">Buy — R$ 99</a>
+        </div>
+      </div>
+
+      <div class="course-card card">
+        <img src="/assets/course-nursing-comm.jpg" alt="English for Nurses">
+        <h3>English for Nurses</h3>
+        <p class="muted">Shift communication, technical vocabulary and patient safety language.</p>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <a class="small-btn" href="#">Preview</a>
+          <a class="btn-primary" href="#">Buy — R$ 79</a>
+        </div>
+      </div>
+
+      <div class="course-card card">
+        <img src="/assets/course-patient-relief.jpg" alt="Patient Interaction">
+        <h3>Patient Interaction in English</h3>
+        <p class="muted">Empathy phrases, delivering bad news, explaining procedures.</p>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <a class="small-btn" href="#">Preview</a>
+          <a class="btn-primary" href="#">Buy — R$ 59</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Vlog / Blog -->
+  <section id="vlog" style="margin-top:28px">
+    <h2>Vlog & Posts</h2>
+    <p class="muted">Short lessons, real cases and vlogs about healthcare + English.</p>
+
+    <div class="vlog-grid" style="margin-top:12px">
+      <div class="vlog-thumb card">
+        <img src="/assets/vlog-1.jpg" alt="vlog 1">
+        <div style="padding:10px">
+          <strong>How to take patient history in English</strong>
+          <p class="muted">3-min phrases for quick triage</p>
+        </div>
+      </div>
+
+      <div class="vlog-thumb card">
+        <img src="/assets/vlog-2.jpg" alt="vlog 2">
+        <div style="padding:10px">
+          <strong>Common lab vocabulary</strong>
+          <p class="muted">Words you need to know in the lab</p>
+        </div>
+      </div>
+
+      <div class="vlog-thumb card">
+        <img src="/assets/vlog-3.jpg" alt="vlog 3">
+        <div style="padding:10px">
+          <strong>Patient-centered phrases</strong>
+          <p class="muted">Empathy and clarity</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" style="margin-top:28px">
+    <div class="grid-2">
+      <div class="card">
+        <h2>About Teacher Lari</h2>
+        <p class="muted">Teacher Lari (Larissa) — Nurse, educator and course creator. I help healthcare professionals communicate clearly in English so they can provide safer, more confident care.</p>
+        <p class="muted">Slogan: <em>Unlock your voice. Unlock your WORLD.</em></p>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <a class="small-btn" href="#courses">My Courses</a>
+          <a class="small-btn" href="#vlog">Vlogs</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Why MASTER HealthTalk?</h3>
+        <ul class="muted">
+          <li>Conteúdo específico para o contexto da saúde</li>
+          <li>Foco em comunicação prática e segura</li>
+          <li>Aulas curtas, materiais para revisão e exemplos reais</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Subscribe -->
+  <section id="contact" style="margin-top:28px">
+    <div class="card">
+      <h2>Contact / Book a Class</h2>
+      <p class="muted">Want to book a trial or ask something? Use the WhatsApp button or send an email.</p>
+
+      <form id="subscribe" style="display:flex;gap:8px;flex-wrap:wrap">
+        <input aria-label="name" name="name" placeholder="Your name" style="flex:1;padding:10px;border-radius:8px;border:1px solid #e8eef0">
+        <input aria-label="email" name="email" placeholder="Email" style="flex:1;padding:10px;border-radius:8px;border:1px solid #e8eef0">
+        <button class="btn-primary" type="button" onclick="subscribe()">Subscribe</button>
+      </form>
+
+      <p class="muted" style="margin-top:12px">Or send an email: <a href="mailto:teacher.lari@example.com">teacher.lari@example.com</a></p>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>
+        <strong>MASTER HealthTalk</strong>
+        <p class="muted" style="margin:6px 0">Teacher Lari — Unlock your voice. Unlock your WORLD.</p>
+      </div>
+
+      <div class="footer-links">
+        <a class="muted" href="#">Privacy</a>
+        <a class="muted" href="#">Terms</a>
+        <a class="muted" href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- Floating WhatsApp button -->
+<div class="whatsapp" id="whatsappBtn" title="WhatsApp">
+  <a href="#" id="whatsappLink">💬</a>
+</div>
+
+<script>
+  // Configuration
+  const WHATSAPP_NUMBER = '+5511982595575'; // international format (Brazil +55, DDD 11)
+  const WHATSAPP_MESSAGE = encodeURIComponent('Olá! Quero saber sobre os cursos do MASTER HealthTalk.');
+
+  function whatsappURL(number, message){
+    // Use wa.me short link
+    const cleaned = number.replace(/[^+0-9]/g, '');
+    // wa.me requires number without + and without spaces
+    const numeric = cleaned.replace('+','');
+    return `https://wa.me/${numeric}?text=${message}`;
+  }
+
+  // Set link
+  document.getElementById('whatsappLink').setAttribute('href', whatsappURL(WHATSAPP_NUMBER, WHATSAPP_MESSAGE));
+  document.getElementById('whatsappLink').setAttribute('target','_blank');
+
+  function subscribe(){
+    const form = document.getElementById('subscribe');
+    const name = form.elements['name'].value || '';
+    const email = form.elements['email'].value || '';
+    if(!email){
+      alert('Please enter an email to subscribe.');
+      return;
+    }
+    // Simple mailto fallback so users can subscribe without backend
+    const subject = encodeURIComponent('Subscribe MASTER HealthTalk');
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}`);
+    window.location.href = `mailto:teacher.lari@example.com?subject=${subject}&body=${body}`;
+  }
+</script>
+
+</body>
+</html>
