@@ -71,14 +71,15 @@
   /* === HERO === */
   .hero {
     margin-top: 90px; /* compensa header fixa */
-    height:1080px;
     background: url("images/hero.png") no-repeat center center;
     background-size: cover;
     display:flex;
     align-items:center;
     justify-content:space-around;
-    padding:0 50px;
+    padding:80px 50px;
     flex-wrap:wrap;
+    min-height: 75vh; /* reduzido pra tirar o espaço extra */
+    gap:40px;
   }
 
   .hero-text {
@@ -106,14 +107,29 @@
     color: var(--secondary);
   }
 
+  /* texto ajustado pra não sobrepor a imagem */
+  .hero-text p {
+    font-size:20px;
+    margin-bottom:30px;
+    color: var(--secondary);
+  }
+
+  .hero-text p {
+    font-size:20px;
+    margin-bottom:30px;
+    color: var(--secondary);
+  }
+
+  /* === FORM MAIS VISÍVEL === */
   .hero-form {
-    background: rgba(255,255,255,0.05);
-    padding:30px;
-    border-radius:12px;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 40px;
+    border-radius: 20px;
     display:flex;
     flex-direction:column;
     gap:12px;
-    width:300px;
+    width:380px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
 
   .hero-form input[type="text"],
@@ -253,7 +269,7 @@
 <section class="hero">
   <div class="hero-text">
     <h1>Welcome to <span>MASTER</span></h1>
-    <p>Aprenda inglês de forma rápida, moderna, criativa e voltada à sua área profissional.</p>
+    <p>Aprenda inglês de forma rápida, moderna e criativa.</p>
   </div>
   <form class="hero-form">
     <label for="nome">Nome completo*</label>
