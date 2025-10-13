@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MASTER English</title>
+
+<!-- Fonte League Spartan -->
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --primary: #3aafa9;
@@ -15,7 +19,7 @@
 
   * {margin:0; padding:0; box-sizing:border-box;}
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'League Spartan', sans-serif;
     background-color: var(--background);
     color: var(--text);
     overflow-x: hidden;
@@ -26,7 +30,8 @@
   header {
     width: 100%;
     height: 90px;
-    background-color: var(--background);
+    background: url("images/header.png") no-repeat center center;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,7 +42,13 @@
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
   }
-  .logo a {color: var(--primary); font-size:22px; font-weight:700; text-decoration:none;}
+
+  .logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+  }
+
   nav ul {list-style:none; display:flex; gap:40px;}
   nav ul li {position:relative;}
   nav a {color: var(--text); text-decoration:none; font-weight:500; transition: color 0.3s;}
@@ -61,7 +72,7 @@
   .hero {
     margin-top: 90px; /* compensa header fixa */
     height:1080px;
-    background: url("images/header.png") no-repeat center center;
+    background: url("images/hero.png") no-repeat center center;
     background-size: cover;
     display:flex;
     align-items:center;
@@ -69,51 +80,135 @@
     padding:0 50px;
     flex-wrap:wrap;
   }
-  .hero-text {max-width:600px; color: var(--text);}
-  .hero-text h1 {font-size:48px; color: var(--primary); margin-bottom:20px;}
-  .hero-text p {font-size:20px; margin-bottom:30px;}
+
+  .hero-text {
+    max-width:600px;
+    color: var(--text);
+    text-align:left;
+  }
+
+  .hero-text h1 {
+    font-size:54px;
+    color: var(--primary);
+    margin-bottom:10px;
+    line-height:1.1;
+  }
+
+  .hero-text h1 span {
+    display:block;
+    font-size:80px;
+    color: var(--title);
+  }
+
+  .hero-text p {
+    font-size:20px;
+    margin-bottom:30px;
+    color: var(--secondary);
+  }
+
   .hero-form {
     background: rgba(255,255,255,0.05);
-    padding:30px; border-radius:12px;
-    display:flex; flex-direction:column; gap:12px;
+    padding:30px;
+    border-radius:12px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
     width:300px;
   }
+
   .hero-form input[type="text"],
   .hero-form input[type="email"],
   .hero-form input[type="tel"] {
-    padding:10px; border-radius:8px; border:none; font-size:14px;
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    font-size:14px;
     width:100%;
   }
+
   .hero-form label {font-size:12px; color: var(--secondary);}
   .hero-form button {
-    background: var(--title); color:#fff; border:none; padding:10px;
-    border-radius:8px; font-weight:600; cursor:pointer;
+    background: var(--title);
+    color:#fff;
+    border:none;
+    padding:10px;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
     margin-top:8px;
   }
 
   /* === SEÇÃO POR QUE MASTER? === */
   .master-section {
-    max-width:1000px; margin:50px auto 100px auto;
+    max-width:1000px; 
+    margin:50px auto 100px auto;
     padding:36px;
     background: rgba(255,255,255,0.03);
     border-radius:12px;
     box-shadow: 0 6px 30px rgba(0,0,0,0.6);
   }
+
   .master-section .eyebrow {
-    display:inline-block; font-size:13px; color: var(--secondary);
-    margin-bottom:8px; text-transform:uppercase; letter-spacing:1px;
+    display:inline-block; 
+    font-size:13px; 
+    color: var(--secondary);
+    margin-bottom:8px; 
+    text-transform:uppercase; 
+    letter-spacing:1px;
   }
-  .master-section h1 {margin:0 0 10px 0; font-size:28px; color: var(--title); line-height:1.05;}
-  .master-section p.lead {margin:0; color: var(--secondary); font-size:15px;}
-  .grid {display:grid; grid-template-columns:1fr 320px; gap:24px; align-items:start;}
+
+  .master-section h1 {
+    margin:0 0 10px 0; 
+    font-size:28px; 
+    color: var(--title); 
+    line-height:1.05;
+  }
+
+  .master-section p.lead {
+    margin:0; 
+    color: var(--secondary); 
+    font-size:15px;
+  }
+
+  .grid {
+    display:grid; 
+    grid-template-columns:1fr 320px; 
+    gap:24px; 
+    align-items:start;
+  }
+
   .card {
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:10px; padding:18px;
+    border-radius:10px; 
+    padding:18px;
   }
-  .card h2 {color: var(--title); margin-bottom:8px;}
-  .card p {color: var(--text); font-size:15px; margin-bottom:14px;}
-  .btn {display:inline-block; background: var(--title); color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; box-shadow: 0 6px 18px rgba(254,95,85,0.12);}
-  .muted {color: var(--secondary); font-size:14px;}
+
+  .card h2 {
+    color: var(--title); 
+    margin-bottom:8px;
+  }
+
+  .card p {
+    color: var(--text); 
+    font-size:15px; 
+    margin-bottom:14px;
+  }
+
+  .btn {
+    display:inline-block; 
+    background: var(--title); 
+    color:#fff; 
+    padding:10px 16px; 
+    border-radius:8px; 
+    text-decoration:none; 
+    font-weight:600; 
+    box-shadow: 0 6px 18px rgba(254,95,85,0.12);
+  }
+
+  .muted {
+    color: var(--secondary); 
+    font-size:14px;
+  }
 
   @media (max-width:880px){
     .hero {flex-direction:column; text-align:center; height:auto; padding:50px 20px;}
@@ -123,20 +218,25 @@
   }
 
   /* === PLACEHOLDER SECTIONS === */
-  section.placeholder {padding:100px 10%; text-align:center; color: var(--secondary); border-top:1px solid #222;}
+  section.placeholder {
+    padding:100px 10%; 
+    text-align:center; 
+    color: var(--secondary); 
+    border-top:1px solid #222;
+  }
 </style>
 </head>
 <body>
 
 <!-- HEADER FIXA -->
 <header>
-  <div class="logo"><a href="#">MASTER English</a></div>
+  <div class="logo">
+    <a href="#"><img src="images/logo.png" alt="Logo MASTER English"></a>
+  </div>
   <nav>
     <ul>
       <li><a href="#">Home</a></li>
-      <li>
-        <a href="#">Cursos</a>
-      </li>
+      <li><a href="#">Cursos</a></li>
       <li>
         <a href="#">Master ▾</a>
         <ul>
@@ -152,7 +252,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <h1>Bem-vindo à MASTER</h1>
+    <h1>Welcome to <span>MASTER</span></h1>
     <p>Aprenda inglês de forma rápida, moderna, criativa e voltada à sua área profissional.</p>
   </div>
   <form class="hero-form">
