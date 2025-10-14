@@ -142,105 +142,110 @@
 
   /* === SEÇÃO POR QUE MASTER === */
   .master-section {
-    background: linear-gradient(rgba(23,37,42,0.8), rgba(23,37,42,0.9)), url("images/porque.png") no-repeat center center;
+    background: linear-gradient(rgba(23,37,42,0.85), rgba(23,37,42,0.9)), url("images/bg-metodologia.jpg") no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     padding: 100px 60px;
-    border-top: 2px solid rgba(255,255,255,0.1);
   }
 
-  .master-section .eyebrow {
-    display:inline-block;
-    font-size:13px;
-    color: var(--secondary);
-    margin-bottom:8px;
-    text-transform:uppercase;
-    letter-spacing:1px;
+  .master-container {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  .master-section h1 {
-    font-size:32px;
+  .master-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 60px;
+  }
+
+  .master-text {
+    flex: 1;
+    min-width: 320px;
+  }
+
+  .master-text h1 {
+    font-size: 2.8rem;
     color: var(--title);
-    margin-bottom:10px;
-    line-height:1.1;
+    margin-bottom: 20px;
   }
 
-  .master-section p.lead {
+  .master-text .lead {
     color: var(--text);
-    font-size:18px;
-    max-width:800px;
-    margin-bottom:60px;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
   }
 
-  /* BLOCO INTERNO */
-  .master-hero {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:50px;
-    flex-wrap:wrap;
-  }
-
-  .master-hero-text {
-    flex:1;
-    max-width:550px;
-  }
-
-  .master-hero-text h2 {
+  .master-text h3 {
     color: var(--primary);
-    font-size:40px;
-    margin-bottom:10px;
+    font-size: 1.4rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
   }
 
-  .master-hero-text p {
-    color: var(--secondary);
-    font-size:18px;
-    margin-bottom:20px;
-  }
-
-  .btn {
-    display:inline-block;
-    background: var(--title);
-    color:#fff;
-    padding:10px 16px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow: 0 6px 18px rgba(254,95,85,0.12);
-  }
-
-  /* === OUTRAS SEÇÕES === */
-  .grid {
-    display:grid;
-    grid-template-columns:1fr 320px;
-    gap:24px;
-    align-items:start;
-    margin-top:60px;
-  }
-
-  .card {
-    background: rgba(0, 0, 0, 0.4);
-    border-radius:10px;
-    padding:18px;
-    backdrop-filter: blur(5px);
-  }
-
-  .card h2 {
+  .master-text h3.special {
     color: var(--title);
-    margin-bottom:8px;
   }
 
-  .card p {
+  .master-text p {
     color: var(--text);
-    font-size:15px;
-    margin-bottom:14px;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .master-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 320px;
+  }
+
+  .master-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .cta {
+    text-align: center;
+    margin-top: 70px;
+  }
+
+  .cta h3 {
+    font-size: 1.8rem;
+    color: var(--text);
+  }
+
+  .cta p {
+    margin: 10px 0 20px;
+    color: var(--text);
+  }
+
+  .btn-saiba-mais {
+    display: inline-block;
+    background-color: var(--title);
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .btn-saiba-mais:hover {
+    background-color: var(--primary);
+    transform: scale(1.05);
   }
 
   @media (max-width:880px){
-    .hero, .master-hero {flex-direction:column; text-align:center; padding:40px 20px; height:auto;}
-    .grid{grid-template-columns:1fr;}
+    .hero, .master-content {flex-direction:column; text-align:center; padding:40px 20px; height:auto;}
     .master-section {padding:80px 20px;}
-    .master-section h1{font-size:26px;}
+    .master-text h1{font-size:2rem;}
   }
 
   section.placeholder {
@@ -294,49 +299,52 @@
 
 <!-- POR QUE MASTER -->
 <section class="master-section">
-  <div class="eyebrow">Por que a MASTER English?</div>
-  <h1>MASTER English — uma experiência completa de aprendizado</h1>
-  <p class="lead">Mais do que uma escola de idiomas, oferecemos uma formação dinâmica, personalizada e comprovada para que você pense, fale e viva o inglês.</p>
+  <div class="master-container">
+    <div class="master-content">
+      <div class="master-text">
+        <h1>Por que a MASTER?</h1>
+        <p class="lead">
+          Mais do que uma escola de idiomas, oferecemos uma formação dinâmica, personalizada e comprovada
+          para que você pense, fale e viva o inglês.
+        </p>
 
-  <!-- BLOCO DO TAMANHO DO HERO -->
-  <div class="master-hero">
-    <div class="master-hero-text">
-      <h2>Metodologia ativa e comprovada</h2>
-      <p>Nosso método é baseado em imersão, prática e situações reais, proporcionando aprendizado natural e eficaz. O aluno desenvolve confiança para se comunicar com fluência desde as primeiras aulas.</p>
-      <p>As aulas são estruturadas para promover fala, escuta e pensamento crítico — sempre com foco em resultados reais.</p>
-      <a class="btn" href="#contato">Saiba mais</a>
-    </div>
-  </div>
+        <h3>Metodologia ativa e comprovada</h3>
+        <p>
+          Nosso método é baseado em imersão, prática e situações reais, proporcionando aprendizado natural e eficaz.
+          O aluno desenvolve confiança para se comunicar com fluência desde as primeiras aulas.
+        </p>
+        <p>
+          As aulas são estruturadas para promover fala, escuta e pensamento crítico, sempre com foco em resultados reais.
+        </p>
 
-  <!-- RESTANTE DOS CARDS -->
-  <div class="grid">
-    <div>
-      <section class="card">
-        <h2>Início em qualquer etapa</h2>
+        <h3>Início em qualquer etapa</h3>
         <p>O aluno pode ingressar em qualquer nível, do básico ao avançado, com uma trajetória clara até a fluência.</p>
 
-        <h2>Foco em conversação</h2>
+        <h3>Foco em conversação</h3>
         <p>Aulas centradas em situações reais, resolução de problemas e comunicação autêntica.</p>
 
-        <h2>Recursos exclusivos</h2>
+        <h3>Recursos exclusivos</h3>
         <p>Material interativo, acompanhamento diário e suporte personalizado garantem evolução contínua.</p>
-      </section>
 
-      <section class="card" style="margin-top:18px;">
-        <h2>MASTER HealthTalk</h2>
-        <p>Pensando em profissionais da saúde, a MASTER desenvolveu o <strong>HealthTalk</strong> — curso voltado à área da saúde com vocabulário técnico, simulações e prática realista.</p>
-      </section>
+        <h3 class="special">MASTER HealthTalk</h3>
+        <p>
+          Pensando em profissionais da saúde, a MASTER desenvolveu o <strong>HealthTalk</strong> —
+          um curso criado especialmente para quem atua em ambientes clínicos, hospitalares e laboratoriais.
+          Com foco no <strong>vocabulário técnico</strong> e em <strong>situações reais de atendimento</strong>,
+          o programa inclui simulações, roleplays e prática de comunicação autêntica no contexto da saúde.
+        </p>
+      </div>
+
+      <div class="master-image">
+        <img src="images/english-gif.gif" alt="Aprendizado interativo">
+      </div>
     </div>
 
-    <aside>
-      <div class="card">
-        <h2>Pronto para começar?</h2>
-        <p>Matricule-se em qualquer nível ou agende uma aula experimental.</p>
-        <div style="margin-top:12px;">
-          <a class="btn" href="#contato">Saiba mais</a>
-        </div>
-      </div>
-    </aside>
+    <div class="cta">
+      <h3>Pronto para começar?</h3>
+      <p>Agende uma aula experimental gratuita.</p>
+      <a href="#contato" class="btn-saiba-mais">Saiba mais</a>
+    </div>
   </div>
 </section>
 
