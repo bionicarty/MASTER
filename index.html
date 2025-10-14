@@ -70,7 +70,7 @@
 
   /* === HERO === */
   .hero {
-    margin-top: 90px; /* compensa header fixa */
+    margin-top: 90px;
     background: url("images/hero.png") no-repeat center center;
     background-size: cover;
     display:flex;
@@ -78,7 +78,7 @@
     justify-content:space-around;
     padding:80px 50px;
     flex-wrap:wrap;
-    min-height: 75vh; /* reduzido pra tirar o espaço extra */
+    min-height: 75vh;
     gap:40px;
   }
 
@@ -107,20 +107,6 @@
     color: var(--secondary);
   }
 
-  /* texto ajustado pra não sobrepor a imagem */
-  .hero-text p {
-    font-size:20px;
-    margin-bottom:30px;
-    color: var(--secondary);
-  }
-
-  .hero-text p {
-    font-size:20px;
-    margin-bottom:30px;
-    color: var(--secondary);
-  }
-
-  /* === FORM MAIS VISÍVEL === */
   .hero-form {
     background: rgba(0, 0, 0, 0.55);
     padding: 40px;
@@ -154,11 +140,11 @@
     margin-top:8px;
   }
 
-  /* === SEÇÃO POR QUE MASTER? === */
+  /* === SEÇÃO POR QUE MASTER === */
   .master-section {
-    max-width:1000px; 
-    margin:50px auto 100px auto;
-    padding:36px;
+    max-width:1200px; 
+    margin:80px auto;
+    padding:60px;
     background: rgba(255,255,255,0.03);
     border-radius:12px;
     box-shadow: 0 6px 30px rgba(0,0,0,0.6);
@@ -181,16 +167,54 @@
   }
 
   .master-section p.lead {
-    margin:0; 
+    margin:0 0 40px 0; 
     color: var(--secondary); 
-    font-size:15px;
+    font-size:16px;
   }
 
+  /* BLOCO DO TAMANHO DO HERO DENTRO DO "POR QUE MASTER" */
+  .master-hero {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+    min-height:75vh;
+    flex-wrap:wrap;
+  }
+
+  .master-hero-text {
+    flex:1;
+    max-width:550px;
+  }
+
+  .master-hero-text h2 {
+    color: var(--primary);
+    font-size:42px;
+    margin-bottom:10px;
+  }
+
+  .master-hero-text p {
+    color: var(--secondary);
+    font-size:18px;
+    margin-bottom:20px;
+  }
+
+  .master-hero-image {
+    flex:1;
+    background: url("images/porque.png") no-repeat center center;
+    background-size: cover;
+    min-height: 75vh;
+    border-radius:20px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.4);
+  }
+
+  /* === OUTRAS SEÇÕES === */
   .grid {
     display:grid; 
     grid-template-columns:1fr 320px; 
     gap:24px; 
     align-items:start;
+    margin-top:60px;
   }
 
   .card {
@@ -221,19 +245,13 @@
     box-shadow: 0 6px 18px rgba(254,95,85,0.12);
   }
 
-  .muted {
-    color: var(--secondary); 
-    font-size:14px;
-  }
-
   @media (max-width:880px){
-    .hero {flex-direction:column; text-align:center; height:auto; padding:50px 20px;}
-    .hero-form {width:100%;}
+    .hero, .master-hero {flex-direction:column; text-align:center; padding:40px 20px; height:auto;}
+    .hero-form, .master-hero-image {width:100%; min-height:300px;}
     .grid{grid-template-columns:1fr;}
     .master-section h1{font-size:24px;}
   }
 
-  /* === PLACEHOLDER SECTIONS === */
   section.placeholder {
     padding:100px 10%; 
     text-align:center; 
@@ -283,31 +301,40 @@
   </form>
 </section>
 
-<!-- POR QUE MASTER? -->
+<!-- POR QUE MASTER -->
 <section class="master-section">
   <div class="eyebrow">Por que a MASTER English?</div>
   <h1>MASTER English — uma experiência completa de aprendizado</h1>
   <p class="lead">Mais do que uma escola de idiomas, oferecemos uma formação dinâmica, personalizada e comprovada para que você pense, fale e viva o inglês.</p>
 
+  <!-- BLOCO DO TAMANHO DO HERO -->
+  <div class="master-hero">
+    <div class="master-hero-text">
+      <h2>Metodologia ativa e comprovada</h2>
+      <p>Nosso método é baseado em imersão, prática e situações reais, proporcionando aprendizado natural e eficaz. O aluno desenvolve confiança para se comunicar com fluência desde as primeiras aulas.</p>
+      <p>As aulas são estruturadas para promover fala, escuta e pensamento crítico — sempre com foco em resultados reais.</p>
+      <a class="btn" href="#contato">Saiba mais</a>
+    </div>
+    <div class="master-hero-image"></div>
+  </div>
+
+  <!-- RESTANTE DOS CARDS -->
   <div class="grid">
     <div>
       <section class="card">
-        <h2>Metodologia ativa e comprovada</h2>
-        <p>O programa foi desenvolvido para promover imersão e produção real do idioma, independente do nível inicial do aluno...</p>
+        <h2>Início em qualquer etapa</h2>
+        <p>O aluno pode ingressar em qualquer nível, do básico ao avançado, com uma trajetória clara até a fluência.</p>
 
-        <h2>Início em qualquer etapa — trajetória clara até o avançado</h2>
-        <p>O aluno pode ingressar em qualquer nível, do básico ao avançado...</p>
+        <h2>Foco em conversação</h2>
+        <p>Aulas centradas em situações reais, resolução de problemas e comunicação autêntica.</p>
 
-        <h2>Foco em conversação e situações reais</h2>
-        <p>As aulas são centradas em conversação, resolução de problemas e cenários do dia a dia...</p>
-
-        <h2>Recursos exclusivos e acompanhamento diário</h2>
-        <p>Oferecemos imersão total no idioma, acompanhamento diário e material exclusivo...</p>
+        <h2>Recursos exclusivos</h2>
+        <p>Material interativo, acompanhamento diário e suporte personalizado garantem evolução contínua.</p>
       </section>
 
       <section class="card" style="margin-top:18px;">
         <h2>MASTER HealthTalk</h2>
-        <p>Pensando em profissionais da saúde, a MASTER desenvolveu o <strong>HealthTalk</strong> — curso voltado à área da saúde...</p>
+        <p>Pensando em profissionais da saúde, a MASTER desenvolveu o <strong>HealthTalk</strong> — curso voltado à área da saúde com vocabulário técnico, simulações e prática realista.</p>
       </section>
     </div>
 
@@ -324,7 +351,6 @@
 </section>
 
 <!-- PLACEHOLDER SECTIONS -->
-<section class="placeholder">Metodologia (em breve)</section>
 <section class="placeholder">Tipos de Curso (em breve)</section>
 <section class="placeholder">Blog e Depoimentos (em breve)</section>
 <section class="placeholder">Sobre Teacher Lari (em breve)</section>
