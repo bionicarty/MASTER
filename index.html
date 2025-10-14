@@ -142,13 +142,37 @@
 
   /* === SEÇÃO POR QUE MASTER === */
   .master-section {
-    background: linear-gradient(rgba(23,37,42,0.85), rgba(23,37,42,0.9)), url("images/bg-metodologia.jpg") no-repeat center center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 60px;
+    color: var(--text);
+  }
+
+  .master-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/bg-metodologia.gif") no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
-    padding: 100px 60px;
+    z-index: 0;
+  }
+
+  .master-section::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(23, 37, 42, 0.8); /* camada escura pra legibilidade */
+    z-index: 1;
   }
 
   .master-container {
+    position: relative;
+    z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
   }
