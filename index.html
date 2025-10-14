@@ -143,8 +143,9 @@
   /* === SEÇÃO POR QUE MASTER === */
   .master-section {
     position: relative;
-    overflow: hidden;
     padding: 120px 60px;
+    overflow: hidden;
+    min-height: 110vh;
     color: var(--text);
   }
 
@@ -152,29 +153,16 @@
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("images/bg-metodologia.gif") no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-    z-index: 0;
-  }
-
-  .master-section::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(23, 37, 42, 0.8); /* camada escura pra legibilidade */
-    z-index: 1;
+    width: 100%; height: 100%;
+    background: url("images/bg-metodologia.gif") center center / cover no-repeat;
+    z-index: -1;
   }
 
   .master-container {
-    position: relative;
-    z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
   }
 
   .master-content {
@@ -352,10 +340,10 @@
 
         <h3 class="special">MASTER HealthTalk</h3>
         <p>
-          Pensando em profissionais da saúde, a MASTER desenvolveu o <strong>HealthTalk</strong> —
-          um curso criado especialmente para quem atua em ambientes clínicos, hospitalares e laboratoriais.
-          Com foco no <strong>vocabulário técnico</strong> e em <strong>situações reais de atendimento</strong>,
-          o programa inclui simulações, roleplays e prática de comunicação autêntica no contexto da saúde.
+          Pensando em profissionais da saúde, a MASTER desenvolveu o <strong>HealthTalk</strong> — um curso criado especialmente
+          para quem atua em ambientes clínicos, hospitalares e laboratoriais. Com foco no <strong>vocabulário técnico</strong> e em
+          <strong>situações reais de atendimento</strong>, o programa inclui simulações, roleplays e prática de comunicação autêntica
+          no contexto da saúde.
         </p>
       </div>
 
