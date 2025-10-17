@@ -15,6 +15,7 @@
   --title: #fe5f55;         /* salmão para títulos */
   --secondary: #def2f1;     /* gelo claro */
   --text: #f5f7f8;          /* branco para textos gerais */
+  --hero-text-color: #17252a; /* azul escuro para hero */
 }
 
 * {margin:0; padding:0; box-sizing:border-box;}
@@ -101,7 +102,7 @@ nav ul ul a {font-size:14px;}
 .hero-text p {
   font-size:20px;
   margin-bottom:30px;
-  color: var(--background); /* azul escuro no lugar do branco */
+  color: var(--hero-text-color); /* azul escuro */
 }
 
 .hero-form {
@@ -129,7 +130,7 @@ nav ul ul a {font-size:14px;}
   margin-top:8px;
 }
 
-/* === POR QUE MASTER === */
+/* === POR QUE MASTER (VERSÃO PUNCHY) === */
 .master-section {
   position: relative;
   padding: 120px 60px;
@@ -159,7 +160,8 @@ nav ul ul a {font-size:14px;}
 }
 
 .master-text h1 { font-size: 2.8rem; color: var(--title); margin-bottom: 20px; }
-.master-text p { font-size: 1.1rem; color: var(--secondary); margin-bottom: 20px; line-height: 1.7; }
+.master-text ul { list-style: none; padding-left: 0; margin-bottom: 20px; }
+.master-text li { font-size: 1.1rem; color: var(--secondary); margin-bottom: 12px; line-height:1.7; }
 .master-text h3 { color: var(--primary); font-size: 1.3rem; margin-top: 25px; margin-bottom: 8px; }
 .master-text h3.special { color: var(--title); }
 
@@ -307,23 +309,17 @@ section.placeholder {
   <div class="master-container">
     <div class="master-text">
       <h1>Por que a MASTER?</h1>
-      <p>Inglês vivido, não apenas estudado — você fala desde o primeiro dia.</p>
-      <p>Aulas práticas, dinâmicas e 100% focadas em comunicação real.</p>
-
-      <h3>Metodologia ativa</h3>
-      <p>Aprenda conversando, simulando e praticando situações do dia a dia.</p>
-
-      <h3>Comece de qualquer nível</h3>
-      <p>Do básico ao avançado, com trajetória clara até a fluência.</p>
-
-      <h3>Foco em resultados</h3>
-      <p>Fala, escuta e pensamento crítico aplicados imediatamente.</p>
-
-      <h3>Recursos exclusivos</h3>
-      <p>Plataforma interativa, acompanhamento próximo e suporte personalizado.</p>
+      <ul>
+        <li><strong>Fale inglês desde o primeiro dia.</strong></li>
+        <li><strong>Aulas práticas, dinâmicas e reais.</strong></li>
+        <li><strong>Aprenda fazendo:</strong> conversando, simulando e praticando.</li>
+        <li><strong>Comece de qualquer nível</strong> e siga até a fluência.</li>
+        <li><strong>Foco total em resultados:</strong> fala, escuta e pensamento crítico.</li>
+        <li><strong>Suporte e plataforma exclusivos</strong> para evoluir rápido.</li>
+      </ul>
 
       <h3 class="special">HealthTalk</h3>
-      <p>Programa exclusivo para profissionais da saúde, com vocabulário técnico, simulações clínicas e prática de comunicação real.</p>
+      <p>Programa exclusivo para profissionais da saúde, com vocabulário técnico, simulações clínicas e comunicação real no hospital.</p>
     </div>
 
     <div class="cta-box">
