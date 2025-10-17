@@ -9,302 +9,237 @@
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  :root {
-    --primary: #3aafa9;
-    --background: #17252a;
-    --title: #fe5f55;
-    --secondary: #def2f1;
-    --text: #f5f7f8;
-  }
+:root {
+  --primary: #3aafa9;
+  --background: #17252a;
+  --title: #fe5f55;
+  --secondary: #def2f1;
+  --text: #f5f7f8;
+}
 
-  * {margin:0; padding:0; box-sizing:border-box;}
-  
-  html {
-    scroll-behavior: smooth;
-  }
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+  font-family: 'League Spartan', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height:1.5;
+  scroll-behavior: smooth;
+}
 
-  body {
-    font-family: 'League Spartan', sans-serif;
-    background-color: var(--background);
-    color: var(--text);
-    overflow-x: hidden;
-    line-height:1.5;
-  }
+/* === HEADER FIXA === */
+header {
+  width: 100%;
+  height: 90px;
+  background: url("images/header.png") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
 
-  /* === HEADER FIXA === */
-  header {
-    width: 100%;
-    height: 90px;
-    background: url("images/header.png") no-repeat center center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 60px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  }
+.logo img { height: 60px; width: auto; display: block; }
 
-  .logo img { height: 60px; width: auto; display: block; }
+nav ul {list-style:none; display:flex; gap:40px;}
+nav a {color: var(--text); text-decoration:none; font-weight:500; transition: color 0.3s;}
+nav a:hover {color: var(--primary);}
 
-  nav ul {list-style:none; display:flex; gap:40px;}
-  nav a {color: var(--text); text-decoration:none; font-weight:500; transition: color 0.3s;}
-  nav a:hover {color: var(--primary);}
+nav ul li {position:relative;}
+nav ul ul {
+  display:none;
+  position:absolute;
+  top:35px; left:0;
+  background-color:#111;
+  padding:15px 0;
+  border-radius:8px;
+  min-width:160px;
+  flex-direction:column;
+  box-shadow:0 4px 10px rgba(0,0,0,0.5);
+}
+nav ul li:hover > ul {display:flex; flex-direction:column;}
+nav ul ul li {padding:8px 20px;}
+nav ul ul a {font-size:14px;}
 
-  nav ul li {position:relative;}
-  nav ul ul {
-    display:none;
-    position:absolute;
-    top:35px; left:0;
-    background-color:#111;
-    padding:15px 0;
-    border-radius:8px;
-    min-width:160px;
-    flex-direction:column;
-    box-shadow:0 4px 10px rgba(0,0,0,0.5);
-  }
-  nav ul li:hover > ul {display:flex; flex-direction:column;}
-  nav ul ul li {padding:8px 20px;}
-  nav ul ul a {font-size:14px;}
+/* === HERO === */
+.hero {
+  margin-top: 90px;
+  background: url("images/hero.png") no-repeat center center;
+  background-size: cover;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  padding:80px 50px;
+  flex-wrap:wrap;
+  min-height: 75vh;
+  gap:40px;
+}
 
-  /* === HERO === */
-  .hero {
-    margin-top: 90px;
-    background: url("images/hero.png") no-repeat center center;
-    background-size: cover;
-    display:flex;
-    align-items:center;
-    justify-content:space-around;
-    padding:80px 50px;
-    flex-wrap:wrap;
-    min-height: 75vh;
-    gap:40px;
-  }
+.hero-text {
+  max-width:600px;
+  color: var(--text);
+  text-align:left;
+}
 
-  .hero-text {
-    max-width:600px;
-    color: var(--text);
-    text-align:left;
-  }
+.hero-text h1 {
+  font-size:54px;
+  color: var(--primary);
+  margin-bottom:10px;
+  line-height:1.1;
+}
 
-  .hero-text h1 {
-    font-size:54px;
-    color: var(--primary);
-    margin-bottom:10px;
-    line-height:1.1;
-  }
+.hero-text h1 span {
+  display:block;
+  font-size:80px;
+  color: var(--title);
+}
 
-  .hero-text h1 span {
-    display:block;
-    font-size:80px;
-    color: var(--title);
-  }
+.hero-text p {
+  font-size:20px;
+  margin-bottom:30px;
+  color: var(--secondary);
+}
 
-  .hero-text p {
-    font-size:20px;
-    margin-bottom:30px;
-    color: var(--secondary);
-  }
+.hero-form {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 40px;
+  border-radius: 20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  width:380px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
 
-  .hero-form {
-    background: rgba(0, 0, 0, 0.55);
-    padding: 40px;
-    border-radius: 20px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    width:380px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  }
+.hero-form input, .hero-form label, .hero-form button { font-size:14px; }
+.hero-form input { padding:10px; border-radius:8px; border:none; width:100%; }
+.hero-form label {font-size:12px; color: var(--secondary);}
+.hero-form button {
+  background: var(--title);
+  color:#fff;
+  border:none;
+  padding:10px;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:8px;
+}
 
-  .hero-form input,
-  .hero-form label,
-  .hero-form button {
-    font-size:14px;
-  }
+/* === POR QUE MASTER === */
+.master-section {
+  position: relative;
+  padding: 120px 60px;
+  overflow: hidden;
+  min-height: 100vh;
+  color: var(--text);
+  background: url("images/por-que.png") no-repeat center center;
+  background-size: cover;
+}
 
-  .hero-form input {
-    padding:10px;
-    border-radius:8px;
-    border:none;
-    width:100%;
-  }
+.master-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 60px;
+}
 
-  .hero-form label {font-size:12px; color: var(--secondary);}
-  .hero-form button {
-    background: var(--title);
-    color:#fff;
-    border:none;
-    padding:10px;
-    border-radius:8px;
-    font-weight:600;
-    cursor:pointer;
-    margin-top:8px;
-  }
+.master-text {
+  flex: 1;
+  min-width: 340px;
+  max-width: 560px;
+}
 
-  /* === POR QUE MASTER === */
-  .master-section {
-    position: relative;
-    padding: 120px 60px;
-    overflow: hidden;
-    min-height: 100vh;
-    color: var(--text);
-    background: url("images/por-que.png") no-repeat center center;
-    background-size: cover;
-  }
+.master-text h1 { font-size: 2.8rem; color: var(--title); margin-bottom: 20px; }
+.master-text p { font-size: 1.1rem; color: var(--secondary); margin-bottom: 20px; line-height: 1.7; }
+.master-text h3 { color: var(--primary); font-size: 1.3rem; margin-top: 25px; margin-bottom: 8px; }
+.master-text h3.special { color: var(--title); }
 
-  .master-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 60px;
-  }
+/* BLOCO CTA ALINHADO À DIREITA */
+.cta-box {
+  flex: 1;
+  min-width: 340px;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
 
-  .master-text {
-    flex: 1;
-    min-width: 340px;
-    max-width: 560px;
-  }
+.cta-box h3 { font-size: 1.8rem; color: var(--text); }
+.cta-box p { margin: 10px 0 20px; color: var(--text); }
 
-  .master-text h1 {
-    font-size: 2.8rem;
-    color: var(--title);
-    margin-bottom: 20px;
-  }
+/* BOTÃO */
+.btn-saiba-mais {
+  display: inline-block;
+  background-color: var(--title);
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
 
-  .master-text p {
-    font-size: 1.1rem;
-    color: var(--secondary);
-    margin-bottom: 20px;
-    line-height: 1.7;
-  }
+.btn-saiba-mais:hover { background-color: var(--primary); transform: scale(1.05); }
 
-  .master-text h3 {
-    color: var(--primary);
-    font-size: 1.3rem;
-    margin-top: 25px;
-    margin-bottom: 8px;
-  }
+/* === NOSSOS CURSOS === */
+#cursos {
+  padding: 120px 60px;
+  background-color: var(--background);
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:40px;
+}
 
-  .master-text h3.special {
-    color: var(--title);
-  }
+.course-box {
+  background: rgba(0,0,0,0.5);
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  max-width:300px;
+  flex:1;
+  min-width:260px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
 
-  /* BLOCO CTA ALINHADO À DIREITA */
-  .cta-box {
-    flex: 1;
-    min-width: 340px;
-    max-width: 460px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  }
+.course-box img { max-width:80px; height:auto; }
+.course-box h3 { color: var(--title); font-size:1.5rem; }
+.course-box p { color: var(--secondary); font-size:1rem; line-height:1.5; }
+.course-box a { margin-top:10px; }
 
-  .cta-box h3 {
-    font-size: 1.8rem;
-    color: var(--text);
-  }
+/* === PLACEHOLDERS === */
+section.placeholder {
+  padding:100px 10%;
+  text-align:center;
+  color: var(--secondary);
+  border-top:1px solid #222;
+}
 
-  .cta-box p {
-    margin: 10px 0 20px;
-    color: var(--text);
-  }
-
-  .btn-saiba-mais {
-    display: inline-block;
-    background-color: var(--title);
-    color: #fff;
-    padding: 14px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-
-  .btn-saiba-mais:hover {
-    background-color: var(--primary);
-    transform: scale(1.05);
-  }
-
-  /* === NOSSOS CURSOS === */
-  .courses-section {
-    padding: 120px 60px;
-    background-color: #111;
-    text-align: center;
-  }
-
-  .courses-section h2 {
-    color: var(--title);
-    font-size: 2.8rem;
-    margin-bottom: 60px;
-  }
-
-  .courses-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-
-  .course-box {
-    background: rgba(0,0,0,0.6);
-    padding: 40px 25px;
-    border-radius: 20px;
-    width: 320px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-  }
-
-  .course-box:hover {
-    transform: translateY(-8px);
-  }
-
-  .course-box img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 20px;
-  }
-
-  .course-box h3 {
-    color: var(--primary);
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-
-  .course-box p {
-    color: var(--secondary);
-    font-size: 1rem;
-    margin-bottom: 25px;
-  }
-
-  @media (max-width:880px){
-    .hero, .master-container, .courses-container {flex-direction:column; text-align:center; padding:40px 20px;}
-    .cta-box {margin-top: 40px;}
-    .master-text h1{font-size:2rem;}
-  }
-
-  section.placeholder {
-    padding:100px 10%;
-    text-align:center;
-    color: var(--secondary);
-    border-top:1px solid #222;
-  }
+@media (max-width:880px){
+  .hero, .master-container, #cursos {flex-direction:column; text-align:center; padding:40px 20px; height:auto;}
+  .cta-box {margin-top: 40px;}
+  .master-text h1{font-size:2rem;}
+}
 </style>
 </head>
 <body>
@@ -353,7 +288,6 @@
   <div class="master-container">
     <div class="master-text">
       <h1>Por que a MASTER?</h1>
-
       <p>Na MASTER, o inglês é vivido, não apenas estudado. Cada aula é prática, dinâmica e voltada à comunicação real.</p>
       <p>Você aprende de forma ativa, desenvolvendo fluência e confiança desde o primeiro dia.</p>
 
@@ -370,44 +304,38 @@
       <p>Plataforma interativa, acompanhamento constante e suporte personalizado para o seu progresso.</p>
 
       <h3 class="special">HealthTalk</h3>
-      <p>
-        Programa exclusivo para profissionais e estudantes da área da saúde, com vocabulário técnico,
-        simulações clínicas e prática de comunicação autêntica.
-      </p>
+      <p>Programa exclusivo para profissionais da saúde, com vocabulário técnico, simulações clínicas e prática de comunicação autêntica no contexto hospitalar.</p>
     </div>
 
     <div class="cta-box">
       <h3>Pronto para começar?</h3>
       <p>Agende sua aula experimental gratuita e conheça o método MASTER.</p>
-      <a href="#cursos" class="btn-saiba-mais">Saiba mais</a>
+      <a href="#contato" class="btn-saiba-mais">Saiba mais</a>
     </div>
   </div>
 </section>
 
 <!-- NOSSOS CURSOS -->
-<section class="courses-section" id="cursos">
-  <h2>Nossos Cursos</h2>
-  <div class="courses-container">
-    <div class="course-box">
-      <img src="images/course1.png" alt="Master Journey">
-      <h3>Master Journey</h3>
-      <p>Do básico à fluência em dois anos, com aulas dinâmicas e acompanhamento personalizado.</p>
-      <a href="#contato" class="btn-saiba-mais">Comece agora</a>
-    </div>
+<section id="cursos">
+  <div class="course-box">
+    <img src="images/course1.png" alt="Master Journey">
+    <h3>Master Journey</h3>
+    <p>Do básico à fluência em 2 anos. Aprenda inglês de forma completa, estruturada e dinâmica.</p>
+    <a href="#contato" class="btn-saiba-mais">Saiba mais</a>
+  </div>
 
-    <div class="course-box">
-      <img src="images/course2.png" alt="Master Talk">
-      <h3>Master Talk</h3>
-      <p>Curso de conversação personalizada, moldado aos seus interesses e ritmo de fala.</p>
-      <a href="#contato" class="btn-saiba-mais">Comece agora</a>
-    </div>
+  <div class="course-box">
+    <img src="images/course2.png" alt="Master Talk">
+    <h3>Master Talk</h3>
+    <p>Conversação personalizada, prática intensa e feedback constante para desenvolver fluência rapidamente.</p>
+    <a href="#contato" class="btn-saiba-mais">Saiba mais</a>
+  </div>
 
-    <div class="course-box">
-      <img src="images/course3.png" alt="Health Talk">
-      <h3>Health Talk</h3>
-      <p>Inglês especializado para profissionais e estudantes da saúde, com prática real e técnica.</p>
-      <a href="#contato" class="btn-saiba-mais">Comece agora</a>
-    </div>
+  <div class="course-box">
+    <img src="images/course3.png" alt="HealthTalk">
+    <h3>HealthTalk</h3>
+    <p>Inglês especializado para estudantes e profissionais da área da saúde, com vocabulário técnico e simulações clínicas.</p>
+    <a href="#contato" class="btn-saiba-mais">Saiba mais</a>
   </div>
 </section>
 
