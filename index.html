@@ -18,6 +18,11 @@
   }
 
   * {margin:0; padding:0; box-sizing:border-box;}
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: 'League Spartan', sans-serif;
     background-color: var(--background);
@@ -235,100 +240,63 @@
     transform: scale(1.05);
   }
 
-  /* === HERO 2 (ARTE SEGUINTE) === */
-  .hero2 {
-    background: url("images/hero2.png") no-repeat center center;
-    background-size: cover;
-    width: 100%;
-    height: 80vh;
-  }
-
-  /* === NOVA SEÇÃO: CURSOS === */
-  .cursos {
-    width: 100%;
-    background-color: var(--secondary);
-    color: var(--background);
-    padding: 100px 60px;
+  /* === NOSSOS CURSOS === */
+  .courses-section {
+    padding: 120px 60px;
+    background-color: #111;
     text-align: center;
   }
 
-  .cursos h2 {
+  .courses-section h2 {
+    color: var(--title);
     font-size: 2.8rem;
-    color: var(--background);
     margin-bottom: 60px;
   }
 
-  .curso-cards {
+  .courses-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+    flex-wrap: wrap;
   }
 
-  .curso-card {
-    background-color: #fff;
+  .course-box {
+    background: rgba(0,0,0,0.6);
+    padding: 40px 25px;
     border-radius: 20px;
-    width: 340px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    overflow: hidden;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
   }
 
-  .curso-card:hover {
-    transform: translateY(-6px);
+  .course-box:hover {
+    transform: translateY(-8px);
   }
 
-  .curso-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
+  .course-box img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 20px;
   }
 
-  .curso-card-content {
-    padding: 25px;
-  }
-
-  .curso-card-content h3 {
-    font-size: 1.6rem;
-    color: var(--title);
-    margin-bottom: 5px;
-  }
-
-  .curso-card-content p.subtitle {
+  .course-box h3 {
     color: var(--primary);
-    font-weight: 600;
-    margin-bottom: 15px;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
   }
 
-  .curso-card-content p.description {
-    color: #333;
+  .course-box p {
+    color: var(--secondary);
     font-size: 1rem;
-    line-height: 1.6;
     margin-bottom: 25px;
   }
 
-  .curso-card-content a {
-    display: inline-block;
-    background-color: var(--primary);
-    color: #fff;
-    padding: 10px 24px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-
-  .curso-card-content a:hover {
-    background-color: var(--title);
-  }
-
   @media (max-width:880px){
-    .hero, .master-container {flex-direction:column; text-align:center; padding:40px 20px; height:auto;}
+    .hero, .master-container, .courses-container {flex-direction:column; text-align:center; padding:40px 20px;}
     .cta-box {margin-top: 40px;}
     .master-text h1{font-size:2rem;}
-    .curso-cards {flex-direction:column; align-items:center;}
   }
 
   section.placeholder {
@@ -348,119 +316,4 @@
   </div>
   <nav>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Cursos</a></li>
-      <li>
-        <a href="#">Master ▾</a>
-        <ul>
-          <li><a href="master/quem-somos.html">Quem somos</a></li>
-          <li><a href="master/teste.html">Teste seu inglês</a></li>
-        </ul>
-      </li>
-      <li><a href="blog/index.html">Blog</a></li>
-    </ul>
-  </nav>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>Welcome to <span>MASTER</span></h1>
-    <p>Aprenda inglês de forma rápida, moderna e criativa.</p>
-  </div>
-  <form class="hero-form">
-    <label for="nome">Nome completo*</label>
-    <input type="text" id="nome" placeholder="Seu nome">
-    <label for="email">Seu melhor e-mail*</label>
-    <input type="email" id="email" placeholder="exemplo@email.com">
-    <label for="celular">Celular*</label>
-    <input type="tel" id="celular" placeholder="(00) 00000-0000">
-    <label><input type="checkbox"> Concordo em receber comunicações da MASTER de acordo com a Política de Privacidade</label>
-    <button type="submit">QUERO MAIS INFORMAÇÕES</button>
-  </form>
-</section>
-
-<!-- POR QUE MASTER -->
-<section class="master-section">
-  <div class="master-container">
-    <div class="master-text">
-      <h1>Por que a MASTER?</h1>
-
-      <p>Na MASTER, o inglês é vivido, não apenas estudado. Cada aula é prática, dinâmica e voltada à comunicação real.</p>
-      <p>Você aprende de forma ativa, desenvolvendo fluência e confiança desde o primeiro dia.</p>
-
-      <h3>Metodologia ativa</h3>
-      <p>Aprendizado natural, baseado em imersão, conversação e situações autênticas do dia a dia.</p>
-
-      <h3>Início em qualquer etapa</h3>
-      <p>Entre em qualquer nível — do básico ao avançado — e siga uma trajetória clara até a fluência.</p>
-
-      <h3>Foco em resultados</h3>
-      <p>Aulas centradas em fala, escuta e pensamento crítico, sempre com aplicação imediata.</p>
-
-      <h3>Recursos exclusivos</h3>
-      <p>Plataforma interativa, acompanhamento constante e suporte personalizado para o seu progresso.</p>
-
-      <h3 class="special">HealthTalk</h3>
-      <p>Programa exclusivo para profissionais da saúde, com vocabulário técnico, simulações clínicas
-      e prática de comunicação autêntica no contexto hospitalar.</p>
-    </div>
-
-    <div class="cta-box">
-      <h3>Pronto para começar?</h3>
-      <p>Agende sua aula experimental gratuita e conheça o método MASTER.</p>
-      <a href="#contato" class="btn-saiba-mais">Saiba mais</a>
-    </div>
-  </div>
-</section>
-
-<!-- HERO 2 -->
-<section class="hero2"></section>
-
-<!-- NOVA SEÇÃO: CURSOS -->
-<section class="cursos" id="cursos">
-  <h2>Nossos Cursos</h2>
-  <div class="curso-cards">
-    
-    <!-- Curso 1 -->
-    <div class="curso-card">
-      <img src="images/journey.png" alt="Master Journey">
-      <div class="curso-card-content">
-        <h3>Master Journey</h3>
-        <p class="subtitle">Do básico à fluência em 2 anos</p>
-        <p class="description">Um programa completo que conduz o aluno desde o nível inicial até a fluência, com metodologia moderna e foco em resultados reais.</p>
-        <a href="#inscricao">Saiba mais</a>
-      </div>
-    </div>
-
-    <!-- Curso 2 -->
-    <div class="curso-card">
-      <img src="images/talk.png" alt="Master Talk">
-      <div class="curso-card-content">
-        <h3>Master Talk</h3>
-        <p class="subtitle">Conversação personalizada</p>
-        <p class="description">Aulas moldadas ao seu perfil, com prática de conversação real, vocabulário específico e evolução comunicativa garantida.</p>
-        <a href="#inscricao">Saiba mais</a>
-      </div>
-    </div>
-
-    <!-- Curso 3 -->
-    <div class="curso-card">
-      <img src="images/health.png" alt="Health Talk">
-      <div class="curso-card-content">
-        <h3>Health Talk</h3>
-        <p class="subtitle">Inglês para profissionais da saúde</p>
-        <p class="description">Curso especializado para profissionais e estudantes da área da saúde, com foco em comunicação clínica, ética e internacional.</p>
-        <a href="#inscricao">Comece agora</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PLACEHOLDER SECTIONS -->
-<section class="placeholder">Blog e Depoimentos (em breve)</section>
-<section class="placeholder">Sobre Teacher Lari (em breve)</section>
-
-</body>
-</html>
+     
