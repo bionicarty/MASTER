@@ -243,10 +243,92 @@
     height: 80vh;
   }
 
+  /* === NOVA SEÇÃO: CURSOS === */
+  .cursos {
+    width: 100%;
+    background-color: var(--secondary);
+    color: var(--background);
+    padding: 100px 60px;
+    text-align: center;
+  }
+
+  .cursos h2 {
+    font-size: 2.8rem;
+    color: var(--background);
+    margin-bottom: 60px;
+  }
+
+  .curso-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .curso-card {
+    background-color: #fff;
+    border-radius: 20px;
+    width: 340px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .curso-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .curso-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .curso-card-content {
+    padding: 25px;
+  }
+
+  .curso-card-content h3 {
+    font-size: 1.6rem;
+    color: var(--title);
+    margin-bottom: 5px;
+  }
+
+  .curso-card-content p.subtitle {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .curso-card-content p.description {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .curso-card-content a {
+    display: inline-block;
+    background-color: var(--primary);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .curso-card-content a:hover {
+    background-color: var(--title);
+  }
+
   @media (max-width:880px){
     .hero, .master-container {flex-direction:column; text-align:center; padding:40px 20px; height:auto;}
     .cta-box {margin-top: 40px;}
     .master-text h1{font-size:2rem;}
+    .curso-cards {flex-direction:column; align-items:center;}
   }
 
   section.placeholder {
@@ -320,10 +402,8 @@
       <p>Plataforma interativa, acompanhamento constante e suporte personalizado para o seu progresso.</p>
 
       <h3 class="special">HealthTalk</h3>
-      <p>
-        Programa exclusivo para profissionais da saúde, com vocabulário técnico, simulações clínicas
-        e prática de comunicação autêntica no contexto hospitalar.
-      </p>
+      <p>Programa exclusivo para profissionais da saúde, com vocabulário técnico, simulações clínicas
+      e prática de comunicação autêntica no contexto hospitalar.</p>
     </div>
 
     <div class="cta-box">
@@ -334,11 +414,51 @@
   </div>
 </section>
 
-<!-- HERO 2 (imagem seguinte) -->
+<!-- HERO 2 -->
 <section class="hero2"></section>
 
+<!-- NOVA SEÇÃO: CURSOS -->
+<section class="cursos" id="cursos">
+  <h2>Nossos Cursos</h2>
+  <div class="curso-cards">
+    
+    <!-- Curso 1 -->
+    <div class="curso-card">
+      <img src="images/journey.png" alt="Master Journey">
+      <div class="curso-card-content">
+        <h3>Master Journey</h3>
+        <p class="subtitle">Do básico à fluência em 2 anos</p>
+        <p class="description">Um programa completo que conduz o aluno desde o nível inicial até a fluência, com metodologia moderna e foco em resultados reais.</p>
+        <a href="#inscricao">Saiba mais</a>
+      </div>
+    </div>
+
+    <!-- Curso 2 -->
+    <div class="curso-card">
+      <img src="images/talk.png" alt="Master Talk">
+      <div class="curso-card-content">
+        <h3>Master Talk</h3>
+        <p class="subtitle">Conversação personalizada</p>
+        <p class="description">Aulas moldadas ao seu perfil, com prática de conversação real, vocabulário específico e evolução comunicativa garantida.</p>
+        <a href="#inscricao">Saiba mais</a>
+      </div>
+    </div>
+
+    <!-- Curso 3 -->
+    <div class="curso-card">
+      <img src="images/health.png" alt="Health Talk">
+      <div class="curso-card-content">
+        <h3>Health Talk</h3>
+        <p class="subtitle">Inglês para profissionais da saúde</p>
+        <p class="description">Curso especializado para profissionais e estudantes da área da saúde, com foco em comunicação clínica, ética e internacional.</p>
+        <a href="#inscricao">Comece agora</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- PLACEHOLDER SECTIONS -->
-<section class="placeholder">Tipos de Curso (em breve)</section>
 <section class="placeholder">Blog e Depoimentos (em breve)</section>
 <section class="placeholder">Sobre Teacher Lari (em breve)</section>
 
