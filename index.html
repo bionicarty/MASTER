@@ -130,7 +130,7 @@ nav ul ul a {font-size:14px;}
   margin-top:8px;
 }
 
-/* === POR QUE MASTER (VERSÃO PUNCHY) === */
+/* === POR QUE MASTER (PUNCHY) === */
 .master-section {
   position: relative;
   padding: 120px 60px;
@@ -247,6 +247,78 @@ nav ul ul a {font-size:14px;}
 }
 .course-box a:hover { background-color: var(--title); }
 
+/* === DEPOIMENTOS (CARROSSEL MELHORADO) === */
+.testimonials-section {
+  padding: 120px 60px;
+  background-color: var(--background);
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  font-size: 2.5rem;
+  color: var(--title);
+  margin-bottom: 50px;
+}
+
+.testimonials-carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.testimonials-carousel video {
+  width: 100%;
+  height: auto;
+  display: none;
+  border-radius: 20px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.testimonials-carousel video.active {
+  display: block;
+  opacity: 1;
+}
+
+/* BOTÕES DE NAVEGAÇÃO */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border:none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor:pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* INDICADORES */
+.carousel-indicators {
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:15px;
+}
+
+.carousel-indicators div {
+  width:12px;
+  height:12px;
+  background: rgba(255,255,255,0.5);
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.carousel-indicators div.active {
+  background: var(--title);
+}
+
 /* === PLACEHOLDERS === */
 section.placeholder {
   padding:100px 10%;
@@ -256,10 +328,11 @@ section.placeholder {
 }
 
 @media (max-width:880px){
-  .hero, .master-container, #cursos {flex-direction:column; text-align:center; padding:40px 20px; height:auto;}
+  .hero, .master-container, #cursos, .testimonials-carousel {flex-direction:column; text-align:center; padding:40px 20px; height:auto;}
   .cta-box {margin-top: 40px;}
   .master-text h1{font-size:2rem;}
   #cursos h2 {font-size:2rem;}
+  .testimonials-section h2 {font-size:2rem;}
 }
 </style>
 </head>
@@ -355,9 +428,35 @@ section.placeholder {
   </div>
 </section>
 
+<!-- DEPOIMENTOS -->
+<section class="testimonials-section">
+  <h2>Depoimentos de Alunos</h2>
+  <div class="testimonials-carousel">
+    <video class="active" controls>
+      <source src="videos/depoimento1.mp4" type="video/mp4">
+    </video>
+    <video controls>
+      <source src="videos/depoimento2.mp4" type="video/mp4">
+    </video>
+    <video controls>
+      <source src="videos/depoimento3.mp4" type="video/mp4">
+    </video>
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+  <div class="carousel-indicators">
+    <div class="active"></div>
+    <div></div>
+    <div></div>
+  </div>
+</section>
+
 <!-- PLACEHOLDER SECTIONS -->
-<section class="placeholder">Blog e Depoimentos (em breve)</section>
 <section class="placeholder">Sobre Teacher Lari (em breve)</section>
 
-</body>
-</html>
+<script>
+// CARROSSEL DE DEPOIMENTOS
+const videos = document.querySelectorAll('.testimonials-carousel video');
+const prevBtn = document.querySelector('.carousel-btn.prev');
+const nextBtn = document.querySelector('.carousel-btn.next');
+const
