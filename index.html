@@ -59,9 +59,9 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
   padding:100px 50px;flex-wrap:wrap;
 }
 .hero-text{max-width:620px}
-.hero-text h1{font-size:72px;color:var(--primary);line-height:1.05;margin-bottom:12px}
-.hero-text h1 span{display:block;font-size:100px;color:var(--title)}
-.hero-text p{font-size:22px;color:var(--hero-text-color);margin-bottom:30px;font-weight:500}
+.hero-text h1{font-size:88px;color:var(--primary);line-height:1.05;margin-bottom:12px}
+.hero-text h1 span{display:block;font-size:120px;color:var(--title)}
+.hero-text p{font-size:24px;color:var(--hero-text-color);margin-bottom:30px;font-weight:500}
 
 /* Formulário Hero */
 .hero-form{
@@ -90,62 +90,164 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
 
 /* CURSOS */
 #cursos{padding:140px 60px;background:var(--secondary);display:flex;gap:34px;justify-content:center;flex-wrap:wrap}
-#cursos h2{width:100%;text-align:center;color:var(--title); font-size:2.8rem;margin-bottom:36px;}
-.course-box{background:#fff;padding:36px;border-radius:16px;max-width:360px;min-width:280px;flex:1;display:flex;flex-direction:column;align-items:center;gap:20px;box-shadow:0 8px 25px rgba(0,0,0,.08)}
-.course-box img{max-width:140px}
-.course-box h3{color:var(--title);font-size:1.5rem}
-.course-box p{color:#111; font-size:1.1rem; text-align:center}
+#cursos h2{width:100%;text-align:center;color:var(--title); font-size:3rem;margin-bottom:36px;}
+.course-box{background:#fff;padding:40px 36px;border-radius:16px;max-width:360px;min-width:280px;flex:1;display:flex;flex-direction:column;align-items:center;gap:24px;box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.course-box img{max-width:160px}
+.course-box h3{color:#fe5f55;font-size:1.8rem}
+.course-box p{color:#111; font-size:1.15rem; text-align:center}
 .course-box a.btn-saiba-mais{margin-top:auto}
 
-/* DEPOIMENTOS */
+/* DEPOIMENTOS 3D */
 .testimonials-section{
   padding:120px 60px;text-align:center;
-  background: linear-gradient(135deg, rgba(58,175,169,.25), rgba(254,95,85,.25)), url("images/testimonials-bg.png") center/cover no-repeat;
-  border-radius:28px;
-}
-.testimonials-section h2{color:var(--title);font-size:2.4rem;margin-bottom:24px}
-
-.testimonials-carousel{
-  max-width:380px;
-  margin:0 auto;
   position:relative;
   border-radius:28px;
   overflow:hidden;
-  background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45));
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
-  width:100%;
+  background: url("images/depoimento.png") center/cover no-repeat;
+}
+.testimonials-section h2{
+  color:#fe5f55;
+  font-size:2.8rem;
+  margin-bottom:40px;
 }
 
-.phone-frame{
-  width:100%;
-  aspect-ratio:9/16;
-  max-height:750px;
+/* Carousel 3D */
+.testimonials-3d-carousel{
+  perspective:1200px;
   position:relative;
-  background:#000;
+  max-width:900px;
+  margin:0 auto;
 }
 
-.testimonials-carousel video{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
-  opacity:0;transition:opacity .45s ease;
-  -webkit-user-select:none;user-select:none;
+.carousel-bg{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.carousel-bg .bg-left,
+.carousel-bg .bg-right{
+  width:250px;
+  height:450px;
+  background-size:cover;
+  background-position:center;
+  filter:blur(12px);
+  opacity:0.3;
   border-radius:20px;
 }
-.testimonials-carousel video.active{opacity:1;z-index:2}
+.carousel-bg .bg-left{background-image:url('images/depo1-bg.jpg');}
+.carousel-bg .bg-right{background-image:url('images/depo2-bg.jpg');}
 
-.carousel-controls{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:8px 12px;pointer-events:none}
+/* Carousel items */
+.carousel-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  transform-style:preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.carousel-item{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%) scale(0.6);
+  opacity:0.3;
+  transition: all 0.6s ease;
+  border-radius:20px;
+  overflow:hidden;
+  width:250px;
+  height:450px;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  filter:blur(2px);
+  z-index:1;
+}
+
+.carousel-item.active{
+  transform:translateX(-50%) scale(1);
+  opacity:1;
+  filter:blur(0);
+  z-index:2;
+  width:300px;
+  height:520px;
+}
+
+.carousel-item.prev{
+  transform:translateX(-180px) scale(0.7);
+  opacity:0.5;
+  filter:blur(2px);
+  z-index:1;
+}
+
+.carousel-item.next{
+  transform:translateX(180px) scale(0.7);
+  opacity:0.5;
+  filter:blur(2px);
+  z-index:1;
+}
+
+.carousel-item video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+/* Controls */
+.carousel-controls{
+  position:absolute;
+  top:50%;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  transform:translateY(-50%);
+  padding:0 20px;
+  pointer-events:none;
+  z-index:3;
+}
 .carousel-btn{
   pointer-events:auto;
-  background:rgba(0,0,0,.45);border:none;color:#fff;width:42px;height:42px;border-radius:50%;font-size:20px;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter: blur(4px);
-  box-shadow:0 6px 18px rgba(0,0,0,.5)
+  background:rgba(0,0,0,0.45);
+  border:none;
+  color:#fff;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  font-size:24px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(4px);
+  box-shadow:0 6px 18px rgba(0,0,0,.5);
 }
-.carousel-btn:active{transform:scale(.98)}
 
-.carousel-indicators{display:flex;gap:8px;justify-content:center;margin-top:14px}
-.carousel-indicators button{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.45);border:none;cursor:pointer}
-.carousel-indicators button.active{background:var(--title)}
-
-.swipe-hint{color:rgba(255,255,255,.45);font-size:12px;margin-top:10px}
+/* Indicators */
+.carousel-indicators{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:20px;
+  z-index:3;
+  position:relative;
+}
+.carousel-indicators button{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,0.45);
+  cursor:pointer;
+}
+.carousel-indicators button.active{background:#fe5f55;}
 
 /* TEACHER LARI */
 .teacher-section{
@@ -180,7 +282,6 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
   .master-container{flex-direction:column;align-items:center}
   .cta-box{width:100%}
   #cursos{padding:60px 20px}
-  .testimonials-carousel{max-width:320px}
   .teacher-container{flex-direction:column-reverse;align-items:center}
   .teacher-photo{width:260px;height:360px}
 }
@@ -281,35 +382,48 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
   </div>
 </section>
 
-<!-- DEPOIMENTOS -->
+<!-- DEPOIMENTOS 3D -->
 <section class="testimonials-section" id="depoimentos">
   <h2>Escute dos nossos alunos</h2>
 
-  <div class="testimonials-carousel" aria-roledescription="carousel">
-    <div class="phone-frame" id="phoneFrame">
-      <video class="t-video active" playsinline preload="metadata" muted>
-        <source src="videos/depoimento1.mp4" type="video/mp4">
-      </video>
-      <video class="t-video" playsinline preload="metadata" muted>
-        <source src="videos/depoimento2.mp4" type="video/mp4">
-      </video>
-      <video class="t-video" playsinline preload="metadata" muted>
-        <source src="videos/depoimento3.mp4" type="video/mp4">
-      </video>
+  <div class="testimonials-3d-carousel" aria-roledescription="carousel">
+    <!-- Imagens de fundo borradas -->
+    <div class="carousel-bg">
+      <div class="bg-left"></div>
+      <div class="bg-right"></div>
+    </div>
 
-      <div class="carousel-controls" aria-hidden="false">
-        <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
-        <button class="carousel-btn next" aria-label="Próximo">&#10095;</button>
+    <!-- Carousel wrapper -->
+    <div class="carousel-wrapper">
+      <div class="carousel-item active">
+        <video class="t-video" playsinline preload="metadata" muted>
+          <source src="videos/depoimento1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="carousel-item">
+        <video class="t-video" playsinline preload="metadata" muted>
+          <source src="videos/depoimento2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="carousel-item">
+        <video class="t-video" playsinline preload="metadata" muted>
+          <source src="videos/depoimento3.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
 
+    <!-- Controles -->
+    <div class="carousel-controls">
+      <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+      <button class="carousel-btn next" aria-label="Próximo">&#10095;</button>
+    </div>
+
+    <!-- Indicadores -->
     <div class="carousel-indicators" role="tablist" aria-label="Indicadores de depoimentos">
       <button class="indicator active" data-index="0" aria-label="Depoimento 1"></button>
       <button class="indicator" data-index="1" aria-label="Depoimento 2"></button>
       <button class="indicator" data-index="2" aria-label="Depoimento 3"></button>
     </div>
-
-    <div class="swipe-hint">Deslize para ver o próximo depoimento</div>
   </div>
 </section>
 
@@ -336,51 +450,33 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
 </footer>
 
 <script>
-// === CARROSSEL DE VÍDEOS ===
-const videos = Array.from(document.querySelectorAll('.t-video'));
+// === CARROSSEL DEPOIMENTOS 3D ===
+const items = Array.from(document.querySelectorAll('.carousel-item'));
 const prevBtn = document.querySelector('.carousel-btn.prev');
 const nextBtn = document.querySelector('.carousel-btn.next');
 const indicators = Array.from(document.querySelectorAll('.indicator'));
-const phoneFrame = document.getElementById('phoneFrame');
+let currentIndex = 0;
 
-let current = 0;
-let autoplayDelay = 8000;
-let autoplayTimer = null;
-
-function showIndex(index){
-  if(index < 0) index = videos.length - 1;
-  if(index >= videos.length) index = 0;
-  videos.forEach((v,i)=>{
-    if(i===index){v.classList.add('active'); v.currentTime=0; v.muted=false; v.play().catch(()=>{});}
-    else {v.classList.remove('active'); try{v.pause()}catch(e){} v.currentTime=0;}
+function updateCarousel(index){
+  if(index<0) index=items.length-1;
+  if(index>=items.length) index=0;
+  items.forEach((item,i)=>{
+    item.classList.remove('prev','active','next');
+    if(i===index)item.classList.add('active');
+    if(i===index-1 || (index===0 && i===items.length-1))item.classList.add('prev');
+    if(i===index+1 || (index===items.length-1 && i===0))item.classList.add('next');
+    item.querySelector('video').currentTime=0;
+    item.querySelector('video').play().catch(()=>{});
   });
-  indicators.forEach((dot,i)=>dot.classList.toggle('active', i===index));
-  current=index; resetAutoplay();
+  indicators.forEach((dot,i)=>dot.classList.toggle('active',i===index));
+  currentIndex=index;
 }
+prevBtn.addEventListener('click',()=>updateCarousel(currentIndex-1));
+nextBtn.addEventListener('click',()=>updateCarousel(currentIndex+1));
+indicators.forEach(dot=>dot.addEventListener('click',(e)=>updateCarousel(parseInt(e.currentTarget.dataset.index))));
 
-function prev(){showIndex(current-1);}
-function next(){showIndex(current+1);}
-function resetAutoplay(){if(autoplayTimer) clearTimeout(autoplayTimer); autoplayTimer=setTimeout(next,autoplayDelay);}
-prevBtn.addEventListener('click',prev); nextBtn.addEventListener('click',next);
-indicators.forEach(btn=>btn.addEventListener('click',(e)=>showIndex(parseInt(e.currentTarget.dataset.index,10))));
-
-// Swipe
-let isTouching=false,startX=0,deltaX=0;
-phoneFrame.addEventListener('touchstart',e=>{isTouching=true; startX=e.touches[0].clientX; if(autoplayTimer) clearTimeout(autoplayTimer);});
-phoneFrame.addEventListener('touchmove',e=>{if(!isTouching) return; deltaX=e.touches[0].clientX-startX;});
-phoneFrame.addEventListener('touchend',()=>{isTouching=false; if(Math.abs(deltaX)>40){deltaX<0?next():prev();} deltaX=0;});
-
-// Desktop drag
-let isDragging=false,mdStart=0;
-phoneFrame.addEventListener('mousedown',e=>{isDragging=true; mdStart=e.clientX; if(autoplayTimer) clearTimeout(autoplayTimer);});
-document.addEventListener('mouseup',e=>{if(!isDragging) return; isDragging=false; const diff=e.clientX-mdStart; if(Math.abs(diff)>60){diff<0?next():prev();} resetAutoplay();});
-
-// Keyboard
-document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')prev(); if(e.key==='ArrowRight')next();});
-
-// Init
-videos.forEach(v=>{v.muted=true; v.playsInline=true;});
-showIndex(0);
+// Autoplay
+let autoplay=setInterval(()=>updateCarousel(currentIndex+1),8000);
 
 // Footer year
 document.getElementById('year').textContent=new Date().getFullYear();
