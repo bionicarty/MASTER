@@ -15,7 +15,7 @@
   --title: #fe5f55;
   --secondary: #def2f1;
   --text: #f5f7f8;
-  --hero-text-color: #17252a; /* azul escuro para o hero */
+  --hero-text-color: #17252a;
 }
 
 /* Reset */
@@ -51,15 +51,16 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
   margin-top:90px;
   background: url("images/hero.png") no-repeat center center;
   background-size:cover;
-  min-height:75vh;
+  min-height:80vh;
   display:flex;gap:40px;align-items:center;justify-content:space-between;
-  padding:80px 50px;flex-wrap:wrap;
+  padding:100px 50px;flex-wrap:wrap;
 }
 .hero-text{max-width:620px}
-.hero-text h1{font-size:54px;color:var(--primary);line-height:1.05;margin-bottom:8px}
+.hero-text h1{font-size:54px;color:var(--primary);line-height:1.05;margin-bottom:12px}
 .hero-text h1 span{display:block;font-size:80px;color:var(--title)}
-.hero-text p{font-size:20px;color:var(--hero-text-color);margin-bottom:30px}
+.hero-text p{font-size:22px;color:var(--hero-text-color);margin-bottom:30px;font-weight:500}
 
+/* Formulário Hero */
 .hero-form{
   width:380px;background:rgba(0,0,0,.55);padding:36px;border-radius:18px;
   box-shadow:0 8px 30px rgba(0,0,0,.4);display:flex;flex-direction:column;gap:12px;
@@ -68,7 +69,7 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
 .hero-form input{padding:10px;border-radius:8px;border:none;font-size:14px;width:100%}
 .hero-form button{background:var(--title);color:#fff;border:none;padding:10px;border-radius:8px;font-weight:700;cursor:pointer}
 
-/* MASTER (punchy) */
+/* MASTER */
 .master-section{
   padding:120px 60px;background:url("images/por-que.png") center/cover no-repeat; color:var(--text);
 }
@@ -84,23 +85,24 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
 .cta-box h3{font-size:1.6rem;color:var(--text)}
 .btn-saiba-mais{background:var(--primary);color:#fff;padding:12px 26px;border-radius:30px;text-decoration:none;font-weight:700;display:inline-block}
 
-/* Cursos */
+/* CURSOS */
 #cursos{padding:120px 60px;background:var(--secondary);display:flex;gap:34px;justify-content:center;flex-wrap:wrap}
 #cursos h2{width:100%;text-align:center;color:#17252a;font-size:2rem;margin-bottom:36px}
-.course-box{background:#fff;padding:26px;border-radius:16px;max-width:300px;min-width:240px;flex:1;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 8px 25px rgba(0,0,0,.08)}
-.course-box img{max-width:80px}
-.course-box h3{color:var(--title)}
-.course-box p{color:#111}
+.course-box{background:#fff;padding:26px;border-radius:16px;max-width:320px;min-width:260px;flex:1;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.course-box img{max-width:100px}
+.course-box h3{color:var(--title);font-size:1.3rem}
+.course-box p{color:#111; font-size:1rem; text-align:center}
+.course-box a.btn-saiba-mais{margin-top:auto}
 
-/* DEPOIMENTOS - CARROSSEL (formato celular estilo 9:16) */
+/* DEPOIMENTOS */
 .testimonials-section{
-  padding:120px 60px;background:var(--background);text-align:center;
+  padding:120px 60px;text-align:center;
+  background: linear-gradient(90deg, rgba(23,37,42,1) 0%, rgba(10,25,30,1) 100%);
 }
 .testimonials-section h2{color:var(--title);font-size:2rem;margin-bottom:24px}
 
-/* carousel wrapper centered with phone-like frame */
 .testimonials-carousel{
-  max-width:360px; /* largura similar a celular */
+  max-width:360px;
   margin:0 auto;
   position:relative;
   border-radius:28px;
@@ -110,24 +112,22 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
   width:100%;
 }
 
-/* phone aspect ratio container (9:16) */
 .phone-frame{
   width:100%;
-  aspect-ratio:9/16; /* modern browsers */
+  aspect-ratio:9/16;
   max-height:700px;
   position:relative;
   background:#000;
 }
 
-/* videos absolutely stacked and crossfaded */
 .testimonials-carousel video{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
   opacity:0;transition:opacity .45s ease;
   -webkit-user-select:none;user-select:none;
+  border-radius:20px;
 }
 .testimonials-carousel video.active{opacity:1;z-index:2}
 
-/* controls */
 .carousel-controls{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:8px 12px;pointer-events:none}
 .carousel-btn{
   pointer-events:auto;
@@ -137,15 +137,13 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
 }
 .carousel-btn:active{transform:scale(.98)}
 
-/* indicators under phone */
 .carousel-indicators{display:flex;gap:8px;justify-content:center;margin-top:14px}
 .carousel-indicators button{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.45);border:none;cursor:pointer}
 .carousel-indicators button.active{background:var(--title)}
 
-/* swipe hint mini */
 .swipe-hint{color:rgba(255,255,255,.45);font-size:12px;margin-top:10px}
 
-/* TEACHER LARI (texto à esquerda, foto à direita) */
+/* TEACHER LARI */
 .teacher-section{
   padding:120px 60px;background:linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.08));
 }
@@ -153,13 +151,13 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
 .teacher-text{flex:1;min-width:320px}
 .teacher-text h2{color:var(--title);font-size:2rem;margin-bottom:12px}
 .teacher-text p{color:var(--secondary);margin-bottom:12px;line-height:1.75}
+.teacher-text .btn-master{margin-top:12px;background:var(--primary);padding:12px 24px;border-radius:30px;color:#fff;font-weight:700;text-decoration:none;display:inline-block}
 
-/* right column for teacher photo (placeholder) */
 .teacher-photo{
   width:420px;height:520px;border-radius:18px;background-size:cover;background-position:center;
   box-shadow:0 20px 60px rgba(0,0,0,.6);flex:0 0 420px;
   display:flex;align-items:flex-end;justify-content:center;padding:18px;
-  background-color:#0f1516; /* fallback */
+  background-color:#0f1516;
   border:2px solid rgba(255,255,255,.03);
 }
 .teacher-photo .label{
@@ -168,10 +166,9 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
   padding:12px;border-radius:10px;
 }
 
-/* FOOTER placeholder */
+/* FOOTER */
 .footer{padding:40px 60px;text-align:center;color:var(--secondary);border-top:1px solid rgba(255,255,255,.04)}
 
-/* responsiveness */
 @media (max-width:980px){
   header{padding:0 24px}
   .hero{padding:48px 20px;flex-direction:column;align-items:flex-start}
@@ -214,7 +211,7 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
 <section class="hero" id="top">
   <div class="hero-text">
     <h1>Welcome to <span>MASTER</span></h1>
-    <p>Aprenda inglês de forma rápida, moderna e criativa.</p>
+    <p>Inglês real para quem quer resultados de verdade.</p>
   </div>
 
   <form class="hero-form" aria-label="Formulário de contato">
@@ -282,11 +279,10 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
 
 <!-- DEPOIMENTOS (CARROSSEL CELULAR) -->
 <section class="testimonials-section" id="depoimentos">
-  <h2>Depoimentos de Alunos</h2>
+  <h2>Escute dos nossos alunos</h2>
 
   <div class="testimonials-carousel" aria-roledescription="carousel">
     <div class="phone-frame" id="phoneFrame">
-      <!-- vídeos empilhados: substitua os src pelos seus arquivos -->
       <video class="t-video active" playsinline preload="metadata" muted>
         <source src="videos/depoimento1.mp4" type="video/mp4">
       </video>
@@ -313,7 +309,7 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
   </div>
 </section>
 
-<!-- TEACHER LARI (texto à esquerda, foto à direita) -->
+<!-- TEACHER LARI -->
 <section class="teacher-section" id="teacher">
   <div class="teacher-container">
     <div class="teacher-text">
@@ -321,11 +317,10 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
       <p>Com quase 10 anos de experiência na educação, Teacher Lari transforma o aprendizado em algo eficiente, dinâmico e prazeroso, para todas as idades e níveis.</p>
       <p>Ela desenvolveu a Master, seu método exclusivo de inglês, criado para resultados reais e rápidos: com dedicação, qualquer aluno pode concluir seu inglês em até 2 anos. Todo o material foi cuidadosamente planejado para o melhor desenvolvimento dos alunos, focando em inglês da vida real, aplicável no trabalho, na área da saúde, no mundo corporativo e em qualquer contexto profissional.</p>
       <p>Formada na área da saúde e com experiência ensinando alunos universitários de enfermagem, Lari criou o primeiro curso de inglês totalmente voltado para profissionais da saúde, o HealthTalk, ministrado por quem entende do setor. Além disso, oferece cursos personalizados para executivos e profissionais de diversas áreas, todos com a mesma metodologia inovadora, prática e focada em resultados.</p>
-      <p>Com a Teacher Lari, você aprende inglês de forma personalizada, prática e transformadora, com material exclusivo e pensado para o seu sucesso!</p>
+      <a href="#contato" class="btn-master">Quero aprender com a Master</a>
     </div>
 
     <div class="teacher-photo" id="teacherPhoto" style="background-image:url('images/teacher.jpg');">
-      <!-- se quiser, substitua teacher.jpg pela sua foto; se preferir background-image: linear-gradient(...) + url(...) -->
       <div class="label">Teacher Lari</div>
     </div>
   </div>
@@ -337,8 +332,7 @@ nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
 </footer>
 
 <script>
-/* ====== CARROSSEL DE VÍDEOS (9:16, swipe, autoplay suave, pausa anterior) ====== */
-
+// === CARROSSEL DE VÍDEOS ===
 const videos = Array.from(document.querySelectorAll('.t-video'));
 const prevBtn = document.querySelector('.carousel-btn.prev');
 const nextBtn = document.querySelector('.carousel-btn.next');
@@ -346,133 +340,47 @@ const indicators = Array.from(document.querySelectorAll('.indicator'));
 const phoneFrame = document.getElementById('phoneFrame');
 
 let current = 0;
-let autoplayDelay = 8000; // ms
+let autoplayDelay = 8000;
 let autoplayTimer = null;
-let isTouching = false;
-let startX = 0;
-let deltaX = 0;
 
-/* Ensure only active video plays */
-function showIndex(index, userInitiated=false){
+function showIndex(index){
   if(index < 0) index = videos.length - 1;
   if(index >= videos.length) index = 0;
-  // stop others
   videos.forEach((v,i)=>{
-    if(i === index){
-      v.classList.add('active');
-      // unmute when user interacts (we start muted to avoid autoplay issues)
-      // try to play; catch promise rejection silently
-      v.currentTime = 0;
-      v.muted = false; // allow sound after user interaction
-      v.play().catch(()=>{ /* autoplay policy */ });
-    } else {
-      v.classList.remove('active');
-      try{ v.pause(); }catch(e){}
-      v.currentTime = 0;
-    }
+    if(i===index){v.classList.add('active'); v.currentTime=0; v.muted=false; v.play().catch(()=>{});}
+    else {v.classList.remove('active'); try{v.pause()}catch(e){} v.currentTime=0;}
   });
-
   indicators.forEach((dot,i)=>dot.classList.toggle('active', i===index));
-  current = index;
-
-  // reset autoplay
-  resetAutoplay();
+  current=index; resetAutoplay();
 }
 
-function prev(){
-  showIndex((current-1+videos.length)%videos.length, true);
-}
-function next(){
-  showIndex((current+1)%videos.length, true);
-}
+function prev(){showIndex(current-1);}
+function next(){showIndex(current+1);}
+function resetAutoplay(){if(autoplayTimer) clearTimeout(autoplayTimer); autoplayTimer=setTimeout(next,autoplayDelay);}
+prevBtn.addEventListener('click',prev); nextBtn.addEventListener('click',next);
+indicators.forEach(btn=>btn.addEventListener('click',(e)=>showIndex(parseInt(e.currentTarget.dataset.index,10))));
 
-/* autoplay with smooth timing */
-function resetAutoplay(){
-  if(autoplayTimer) clearTimeout(autoplayTimer);
-  autoplayTimer = setTimeout(()=>{
-    next();
-  }, autoplayDelay);
-}
+// Swipe
+let isTouching=false,startX=0,deltaX=0;
+phoneFrame.addEventListener('touchstart',e=>{isTouching=true; startX=e.touches[0].clientX; if(autoplayTimer) clearTimeout(autoplayTimer);});
+phoneFrame.addEventListener('touchmove',e=>{if(!isTouching) return; deltaX=e.touches[0].clientX-startX;});
+phoneFrame.addEventListener('touchend',()=>{isTouching=false; if(Math.abs(deltaX)>40){deltaX<0?next():prev();} deltaX=0;});
 
-/* Buttons */
-prevBtn.addEventListener('click', prev);
-nextBtn.addEventListener('click', next);
+// Desktop drag
+let isDragging=false,mdStart=0;
+phoneFrame.addEventListener('mousedown',e=>{isDragging=true; mdStart=e.clientX; if(autoplayTimer) clearTimeout(autoplayTimer);});
+document.addEventListener('mouseup',e=>{if(!isDragging) return; isDragging=false; const diff=e.clientX-mdStart; if(Math.abs(diff)>60){diff<0?next():prev();} resetAutoplay();});
 
-/* indicators click */
-indicators.forEach(btn=>{
-  btn.addEventListener('click', (e)=>{
-    const idx = parseInt(e.currentTarget.dataset.index,10);
-    showIndex(idx, true);
-  });
-});
+// Keyboard
+document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')prev(); if(e.key==='ArrowRight')next();});
 
-/* Swipe handling for touch devices */
-phoneFrame.addEventListener('touchstart', (e)=>{
-  isTouching = true;
-  startX = e.touches[0].clientX;
-  if(autoplayTimer) clearTimeout(autoplayTimer);
-});
-phoneFrame.addEventListener('touchmove', (e)=>{
-  if(!isTouching) return;
-  deltaX = e.touches[0].clientX - startX;
-});
-phoneFrame.addEventListener('touchend', ()=>{
-  isTouching = false;
-  if(Math.abs(deltaX) > 40){
-    if(deltaX < 0) next(); else prev();
-  }
-  deltaX = 0;
-});
-
-/* mouse drag support (desktop) */
-let isDragging = false;
-let mdStart = 0;
-phoneFrame.addEventListener('mousedown',(e)=>{
-  isDragging = true; mdStart = e.clientX; if(autoplayTimer) clearTimeout(autoplayTimer);
-});
-document.addEventListener('mousemove',(e)=>{
-  if(!isDragging) return;
-});
-document.addEventListener('mouseup',(e)=>{
-  if(!isDragging) return;
-  isDragging = false;
-  const diff = e.clientX - mdStart;
-  if(Math.abs(diff) > 60){
-    if(diff < 0) next(); else prev();
-  }
-  resetAutoplay();
-});
-
-/* keyboard arrows */
-document.addEventListener('keydown',(e)=>{
-  if(e.key === 'ArrowLeft') prev();
-  if(e.key === 'ArrowRight') next();
-});
-
-/* Initialize: mute all videos to allow autoplay on some browsers, will unmute after user click */
-videos.forEach(v=>{
-  v.muted = true;
-  v.playsInline = true;
-  v.setAttribute('playsinline', '');
-});
+// Init
+videos.forEach(v=>{v.muted=true; v.playsInline=true;});
 showIndex(0);
 
-/* Accessibility: pause videos when tab hidden */
-document.addEventListener('visibilitychange', ()=> {
-  if(document.hidden){
-    videos.forEach(v => v.pause());
-  } else {
-    // resume current
-    const active = videos[current];
-    active.play().catch(()=>{});
-  }
-});
-
-/* ====== Footer year ====== */
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* === Optional: lazy load videos (if many) - not necessary for 3 small videos === */
-
+// Footer year
+document.getElementById('year').textContent=new Date().getFullYear();
 </script>
+
 </body>
 </html>
