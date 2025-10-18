@@ -1,140 +1,191 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>MASTER English</title>
 
 <!-- Fonte League Spartan -->
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
   --primary: #3aafa9;
   --background: #17252a;
   --title: #fe5f55;
   --secondary: #def2f1;
   --text: #f5f7f8;
-  --hero-text-color: #17252a;
+  --hero-text-color: #17252a; /* azul escuro para o hero */
 }
 
-* {margin:0; padding:0; box-sizing:border-box;}
-body {
-  font-family: 'League Spartan', sans-serif;
-  background-color: var(--background);
-  color: var(--text);
-  overflow-x: hidden;
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: "League Spartan",sans-serif;
+  background:var(--background);
+  color:var(--text);
   line-height:1.5;
-  scroll-behavior: smooth;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
 }
 
 /* HEADER */
-header {
-  width: 100%;
-  height: 90px;
-  background: url("images/header.png") no-repeat center center;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 60px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+header{
+  position:fixed;top:0;left:0;right:0;height:90px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 60px;background:transparent;z-index:200;
+  box-shadow:0 2px 10px rgba(0,0,0,.45);
 }
-.logo img { height: 60px; width: auto; }
-nav ul {list-style:none; display:flex; gap:40px;}
-nav a {color: var(--text); text-decoration:none; font-weight:500; transition: color 0.3s;}
-nav a:hover {color: var(--primary);}
-nav ul li {position:relative;}
-nav ul ul { display:none; position:absolute; top:35px; left:0; background-color:#111; padding:15px 0; border-radius:8px; min-width:160px; flex-direction:column; box-shadow:0 4px 10px rgba(0,0,0,0.5);}
-nav ul li:hover > ul {display:flex; flex-direction:column;}
-nav ul ul li {padding:8px 20px;}
-nav ul ul a {font-size:14px;}
+.logo img{height:60px;display:block}
+nav ul{list-style:none;display:flex;gap:36px;align-items:center}
+nav a{color:var(--text);text-decoration:none;font-weight:500;transition:color .25s}
+nav a:hover{color:var(--primary)}
+nav ul li{position:relative}
+nav ul ul{display:none;position:absolute;top:36px;left:0;background:#111;padding:12px 0;border-radius:8px;min-width:160px}
+nav ul li:hover>ul{display:block}
+nav ul ul a{display:block;padding:8px 20px;color:var(--text);font-size:14px}
 
 /* HERO */
-.hero {
-  margin-top: 90px;
+.hero{
+  margin-top:90px;
   background: url("images/hero.png") no-repeat center center;
-  background-size: cover;
-  display:flex;
-  align-items:center;
-  justify-content:space-around;
-  padding:80px 50px;
-  flex-wrap:wrap;
-  min-height: 75vh;
-  gap:40px;
+  background-size:cover;
+  min-height:75vh;
+  display:flex;gap:40px;align-items:center;justify-content:space-between;
+  padding:80px 50px;flex-wrap:wrap;
 }
-.hero-text { max-width:600px; text-align:left; }
-.hero-text h1 { font-size:54px; color: var(--primary); margin-bottom:10px; line-height:1.1; }
-.hero-text h1 span { display:block; font-size:80px; color: var(--title); }
-.hero-text p { font-size:20px; margin-bottom:30px; color: var(--hero-text-color); }
-.hero-form { background: rgba(0, 0, 0, 0.55); padding: 40px; border-radius: 20px; display:flex; flex-direction:column; gap:12px; width:380px; box-shadow: 0 0 20px rgba(0,0,0,0.3);}
-.hero-form input, .hero-form label, .hero-form button { font-size:14px; }
-.hero-form input { padding:10px; border-radius:8px; border:none; width:100%; }
-.hero-form label {font-size:12px; color: var(--secondary);}
-.hero-form button { background: var(--title); color:#fff; border:none; padding:10px; border-radius:8px; font-weight:600; cursor:pointer; margin-top:8px; }
+.hero-text{max-width:620px}
+.hero-text h1{font-size:54px;color:var(--primary);line-height:1.05;margin-bottom:8px}
+.hero-text h1 span{display:block;font-size:80px;color:var(--title)}
+.hero-text p{font-size:20px;color:var(--hero-text-color);margin-bottom:30px}
 
-/* MASTER */
-.master-section { position: relative; padding: 120px 60px; overflow: hidden; min-height: 100vh; color: var(--text); background: url("images/por-que.png") no-repeat center center; background-size: cover; }
-.master-container { max-width: 1200px; margin:0 auto; position: relative; z-index: 2; display:flex; justify-content: space-between; align-items:flex-start; flex-wrap: wrap; gap:60px; }
-.master-text { flex:1; min-width:340px; max-width:560px; }
-.master-text h1{ font-size:2.8rem; color: var(--title); margin-bottom:20px; }
-.master-text ul{ list-style:none; padding-left:0; margin-bottom:20px; }
-.master-text li{ font-size:1.1rem; color: var(--secondary); margin-bottom:12px; line-height:1.7; }
-.master-text h3{ color: var(--primary); font-size:1.3rem; margin-top:25px; margin-bottom:8px; }
-.master-text h3.special{ color: var(--title); }
-.cta-box{ flex:1; min-width:340px; max-width:460px; display:flex; flex-direction: column; align-items:center; justify-content:flex-end; text-align:center; background: rgba(0,0,0,0.5); padding:40px 30px; border-radius:20px; box-shadow:0 0 20px rgba(0,0,0,0.3); }
-.cta-box h3{ font-size:1.8rem; color: var(--text);}
-.cta-box p{ margin:10px 0 20px; color: var(--text);}
-.btn-saiba-mais{ display:inline-block; background-color: var(--primary); color:#fff; padding:14px 30px; border-radius:30px; text-decoration:none; font-weight:bold; transition: all 0.3s ease; }
-.btn-saiba-mais:hover{ background-color: var(--title); transform: scale(1.05); }
+.hero-form{
+  width:380px;background:rgba(0,0,0,.55);padding:36px;border-radius:18px;
+  box-shadow:0 8px 30px rgba(0,0,0,.4);display:flex;flex-direction:column;gap:12px;
+}
+.hero-form label{font-size:12px;color:var(--secondary)}
+.hero-form input{padding:10px;border-radius:8px;border:none;font-size:14px;width:100%}
+.hero-form button{background:var(--title);color:#fff;border:none;padding:10px;border-radius:8px;font-weight:700;cursor:pointer}
 
-/* CURSOS */
-#cursos{ padding:120px 60px; background-color: var(--secondary); display:flex; justify-content:center; flex-wrap:wrap; gap:40px; }
-#cursos h2{ width:100%; text-align:center; font-size:2.5rem; color:#17252a; margin-bottom:50px; font-weight:700; }
-.course-box{ background:#fff; padding:30px; border-radius:20px; text-align:center; max-width:300px; flex:1; min-width:260px; display:flex; flex-direction:column; align-items:center; gap:15px; box-shadow:0 0 15px rgba(0,0,0,0.15);}
-.course-box img{ max-width:80px; height:auto; }
-.course-box h3{ color: var(--title); font-size:1.5rem; }
-.course-box p{ color:#111; font-size:1rem; line-height:1.5; }
-.course-box a{ margin-top:10px; background-color: var(--primary); color:#fff; padding:10px 20px; border-radius:25px; text-decoration:none; font-weight:600; transition:all 0.3s ease; }
-.course-box a:hover{ background-color: var(--title); }
+/* MASTER (punchy) */
+.master-section{
+  padding:120px 60px;background:url("images/por-que.png") center/cover no-repeat; color:var(--text);
+}
+.master-container{max-width:1200px;margin:0 auto;display:flex;gap:60px;align-items:flex-start;flex-wrap:wrap}
+.master-text{flex:1;min-width:320px;max-width:620px}
+.master-text h1{color:var(--title);font-size:2.4rem;margin-bottom:18px}
+.master-text ul{list-style:none;padding-left:0}
+.master-text li{color:var(--secondary);font-size:1.05rem;margin-bottom:12px}
+.master-text h3{color:var(--primary);margin-top:18px;margin-bottom:8px}
+.master-text h3.special{color:var(--title)}
 
-/* DEPOIMENTOS CARROSSEL */
-.testimonials-section{ padding:120px 60px; background-color: var(--background); text-align:center; }
-.testimonials-section h2{ font-size:2.5rem; color: var(--title); margin-bottom:50px; }
-.testimonials-carousel{ position: relative; max-width:400px; margin:0 auto; overflow:hidden; border-radius:20px; }
-.testimonials-carousel video{ width:100%; height:auto; display:none; border-radius:20px; }
-.testimonials-carousel video.active{ display:block; }
-.carousel-btn{ position:absolute; top:50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border:none; color:#fff; font-size:2rem; padding:10px 15px; cursor:pointer; border-radius:50%; z-index:2;}
-.carousel-btn.prev{ left:10px; }
-.carousel-btn.next{ right:10px; }
+.cta-box{flex:0 0 420px;background:rgba(0,0,0,.5);padding:36px;border-radius:16px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.cta-box h3{font-size:1.6rem;color:var(--text)}
+.btn-saiba-mais{background:var(--primary);color:#fff;padding:12px 26px;border-radius:30px;text-decoration:none;font-weight:700;display:inline-block}
 
-/* TEACHER LARI */
+/* Cursos */
+#cursos{padding:120px 60px;background:var(--secondary);display:flex;gap:34px;justify-content:center;flex-wrap:wrap}
+#cursos h2{width:100%;text-align:center;color:#17252a;font-size:2rem;margin-bottom:36px}
+.course-box{background:#fff;padding:26px;border-radius:16px;max-width:300px;min-width:240px;flex:1;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.course-box img{max-width:80px}
+.course-box h3{color:var(--title)}
+.course-box p{color:#111}
+
+/* DEPOIMENTOS - CARROSSEL (formato celular estilo 9:16) */
+.testimonials-section{
+  padding:120px 60px;background:var(--background);text-align:center;
+}
+.testimonials-section h2{color:var(--title);font-size:2rem;margin-bottom:24px}
+
+/* carousel wrapper centered with phone-like frame */
+.testimonials-carousel{
+  max-width:360px; /* largura similar a celular */
+  margin:0 auto;
+  position:relative;
+  border-radius:28px;
+  overflow:hidden;
+  background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45));
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  width:100%;
+}
+
+/* phone aspect ratio container (9:16) */
+.phone-frame{
+  width:100%;
+  aspect-ratio:9/16; /* modern browsers */
+  max-height:700px;
+  position:relative;
+  background:#000;
+}
+
+/* videos absolutely stacked and crossfaded */
+.testimonials-carousel video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+  opacity:0;transition:opacity .45s ease;
+  -webkit-user-select:none;user-select:none;
+}
+.testimonials-carousel video.active{opacity:1;z-index:2}
+
+/* controls */
+.carousel-controls{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:8px 12px;pointer-events:none}
+.carousel-btn{
+  pointer-events:auto;
+  background:rgba(0,0,0,.45);border:none;color:#fff;width:42px;height:42px;border-radius:50%;font-size:20px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter: blur(4px);
+  box-shadow:0 6px 18px rgba(0,0,0,.5)
+}
+.carousel-btn:active{transform:scale(.98)}
+
+/* indicators under phone */
+.carousel-indicators{display:flex;gap:8px;justify-content:center;margin-top:14px}
+.carousel-indicators button{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.45);border:none;cursor:pointer}
+.carousel-indicators button.active{background:var(--title)}
+
+/* swipe hint mini */
+.swipe-hint{color:rgba(255,255,255,.45);font-size:12px;margin-top:10px}
+
+/* TEACHER LARI (texto à esquerda, foto à direita) */
 .teacher-section{
-  padding:120px 60px;
-  background: url('images/teacher-bg.png') no-repeat center center;
-  background-size: cover;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-  gap:20px;
+  padding:120px 60px;background:linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.08));
 }
-.teacher-section h2{ font-size:2.5rem; color: var(--title); margin-bottom:20px;}
-.teacher-section p{ max-width:900px; font-size:1.1rem; color: var(--secondary); line-height:1.8; }
+.teacher-container{max-width:1200px;margin:0 auto;display:flex;gap:40px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.teacher-text{flex:1;min-width:320px}
+.teacher-text h2{color:var(--title);font-size:2rem;margin-bottom:12px}
+.teacher-text p{color:var(--secondary);margin-bottom:12px;line-height:1.75}
 
-/* PLACEHOLDER */
-section.placeholder{ padding:100px 10%; text-align:center; color: var(--secondary); border-top:1px solid #222; }
+/* right column for teacher photo (placeholder) */
+.teacher-photo{
+  width:420px;height:520px;border-radius:18px;background-size:cover;background-position:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);flex:0 0 420px;
+  display:flex;align-items:flex-end;justify-content:center;padding:18px;
+  background-color:#0f1516; /* fallback */
+  border:2px solid rgba(255,255,255,.03);
+}
+.teacher-photo .label{
+  width:100%;text-align:left;color:var(--text);font-weight:700;
+  background: linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.45));
+  padding:12px;border-radius:10px;
+}
 
-@media (max-width:880px){
-  .hero, .master-container, #cursos, .testimonials-carousel, .teacher-section{ flex-direction:column; text-align:center; padding:40px 20px; height:auto;}
-  .cta-box{ margin-top:40px; }
-  .master-text h1{ font-size:2rem; }
-  #cursos h2, .testimonials-section h2, .teacher-section h2{ font-size:2rem; }
+/* FOOTER placeholder */
+.footer{padding:40px 60px;text-align:center;color:var(--secondary);border-top:1px solid rgba(255,255,255,.04)}
+
+/* responsiveness */
+@media (max-width:980px){
+  header{padding:0 24px}
+  .hero{padding:48px 20px;flex-direction:column;align-items:flex-start}
+  .hero-form{width:100%}
+  .master-container{flex-direction:column;align-items:center}
+  .cta-box{width:100%}
+  #cursos{padding:60px 20px}
+  .testimonials-carousel{max-width:320px}
+  .teacher-container{flex-direction:column-reverse;align-items:center}
+  .teacher-photo{width:260px;height:360px}
+}
+@media (max-width:520px){
+  .hero-text h1{font-size:28px}
+  .hero-text h1 span{font-size:42px}
 }
 </style>
 </head>
@@ -142,7 +193,7 @@ section.placeholder{ padding:100px 10%; text-align:center; color: var(--secondar
 
 <!-- HEADER -->
 <header>
-  <div class="logo"><a href="#"><img src="images/logo.png" alt="Logo MASTER English"></a></div>
+  <div class="logo"><a href="#"><img src="images/logo.png" alt="Logo MASTER"></a></div>
   <nav>
     <ul>
       <li><a href="#">Home</a></li>
@@ -160,25 +211,26 @@ section.placeholder{ padding:100px 10%; text-align:center; color: var(--secondar
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero-text">
     <h1>Welcome to <span>MASTER</span></h1>
     <p>Aprenda inglês de forma rápida, moderna e criativa.</p>
   </div>
-  <form class="hero-form">
+
+  <form class="hero-form" aria-label="Formulário de contato">
     <label for="nome">Nome completo*</label>
-    <input type="text" id="nome" placeholder="Seu nome">
+    <input id="nome" type="text" placeholder="Seu nome" />
     <label for="email">Seu melhor e-mail*</label>
-    <input type="email" id="email" placeholder="exemplo@email.com">
+    <input id="email" type="email" placeholder="exemplo@email.com" />
     <label for="celular">Celular*</label>
-    <input type="tel" id="celular" placeholder="(00) 00000-0000">
-    <label><input type="checkbox"> Concordo em receber comunicações da MASTER de acordo com a Política de Privacidade</label>
+    <input id="celular" type="tel" placeholder="(00) 00000-0000" />
+    <label style="font-size:12px;color:var(--secondary)"><input type="checkbox" /> Concordo em receber comunicações da MASTER</label>
     <button type="submit">QUERO MAIS INFORMAÇÕES</button>
   </form>
 </section>
 
 <!-- MASTER -->
-<section class="master-section">
+<section class="master-section" id="por-que">
   <div class="master-container">
     <div class="master-text">
       <h1>Por que a MASTER?</h1>
@@ -190,13 +242,15 @@ section.placeholder{ padding:100px 10%; text-align:center; color: var(--secondar
         <li><strong>Foco total em resultados:</strong> fala, escuta e pensamento crítico.</li>
         <li><strong>Suporte e plataforma exclusivos</strong> para evoluir rápido.</li>
       </ul>
+
       <h3 class="special">HealthTalk</h3>
       <p>Programa exclusivo para profissionais da saúde, com vocabulário técnico, simulações clínicas e comunicação real no hospital.</p>
     </div>
+
     <div class="cta-box">
       <h3>Pronto para começar?</h3>
       <p>Agende sua aula experimental gratuita e conheça o método MASTER.</p>
-      <a href="#contato" class="btn-saiba-mais">Saiba mais</a>
+      <a class="btn-saiba-mais" href="#contato">Saiba mais</a>
     </div>
   </div>
 </section>
@@ -205,50 +259,220 @@ section.placeholder{ padding:100px 10%; text-align:center; color: var(--secondar
 <section id="cursos">
   <h2>Nossos Cursos</h2>
   <div class="course-box">
-    <img src="images/course1.png" alt="Master Journey">
+    <img src="images/course1.png" alt="Master Journey" />
     <h3>Master Journey</h3>
     <p>Do básico à fluência em 2 anos. Aprenda inglês de forma completa, estruturada e dinâmica.</p>
-    <a href="#contato">Saiba mais</a>
+    <a href="#contato" class="btn-saiba-mais" style="background:var(--primary)">Saiba mais</a>
   </div>
+
   <div class="course-box">
-    <img src="images/course2.png" alt="Master Talk">
+    <img src="images/course2.png" alt="Master Talk" />
     <h3>Master Talk</h3>
-    <p>Conversação personalizada, prática intensa e feedback constante para desenvolver fluência rapidamente.</p>
-    <a href="#contato">Saiba mais</a>
+    <p>Conversação personalizada, prática intensa e feedback constante.</p>
+    <a href="#contato" class="btn-saiba-mais" style="background:var(--primary)">Saiba mais</a>
   </div>
+
   <div class="course-box">
-    <img src="images/course3.png" alt="HealthTalk">
+    <img src="images/course3.png" alt="HealthTalk" />
     <h3>HealthTalk</h3>
-    <p>Inglês especializado para estudantes e profissionais da área da saúde, com vocabulário técnico e simulações clínicas.</p>
-    <a href="#contato">Saiba mais</a>
+    <p>Inglês especializado para profissionais da saúde, com simulações clínicas.</p>
+    <a href="#contato" class="btn-saiba-mais" style="background:var(--primary)">Saiba mais</a>
   </div>
 </section>
 
-<!-- DEPOIMENTOS -->
-<section class="testimonials-section">
+<!-- DEPOIMENTOS (CARROSSEL CELULAR) -->
+<section class="testimonials-section" id="depoimentos">
   <h2>Depoimentos de Alunos</h2>
-  <div class="testimonials-carousel">
-    <video class="active" controls>
-      <source src="videos/depoimento1.mp4" type="video/mp4">
-    </video>
-    <video controls>
-      <source src="videos/depoimento2.mp4" type="video/mp4">
-    </video>
-    <video controls>
-      <source src="videos/depoimento3.mp4" type="video/mp4">
-    </video>
-    <button class="carousel-btn prev">&#10094;</button>
-    <button class="carousel-btn next">&#10095;</button>
-  </div>
-  <div class="carousel-indicators">
-    <div class="active"></div>
-    <div></div>
-    <div></div>
+
+  <div class="testimonials-carousel" aria-roledescription="carousel">
+    <div class="phone-frame" id="phoneFrame">
+      <!-- vídeos empilhados: substitua os src pelos seus arquivos -->
+      <video class="t-video active" playsinline preload="metadata" muted>
+        <source src="videos/depoimento1.mp4" type="video/mp4">
+      </video>
+      <video class="t-video" playsinline preload="metadata" muted>
+        <source src="videos/depoimento2.mp4" type="video/mp4">
+      </video>
+      <video class="t-video" playsinline preload="metadata" muted>
+        <source src="videos/depoimento3.mp4" type="video/mp4">
+      </video>
+
+      <div class="carousel-controls" aria-hidden="false">
+        <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+        <button class="carousel-btn next" aria-label="Próximo">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="carousel-indicators" role="tablist" aria-label="Indicadores de depoimentos">
+      <button class="indicator active" data-index="0" aria-label="Depoimento 1"></button>
+      <button class="indicator" data-index="1" aria-label="Depoimento 2"></button>
+      <button class="indicator" data-index="2" aria-label="Depoimento 3"></button>
+    </div>
+
+    <div class="swipe-hint">Deslize para ver o próximo depoimento</div>
   </div>
 </section>
 
-<!-- TEACHER LARI -->
-<section class="teacher-section">
-  <h2>Conheça Teacher Lari</h2>
-  <p>Com quase 10 anos de experiência na educação, Teacher Lari transforma o aprendizado em algo eficiente, dinâmico e prazeroso, para todas as idades e níveis.</p>
-  <p>Ela desenvolveu a Master, seu método exclusivo de inglês, criado para resultados reais e rápidos: com dedicação, qualquer aluno pode concluir seu inglês em até 2
+<!-- TEACHER LARI (texto à esquerda, foto à direita) -->
+<section class="teacher-section" id="teacher">
+  <div class="teacher-container">
+    <div class="teacher-text">
+      <h2>Conheça Teacher Lari</h2>
+      <p>Com quase 10 anos de experiência na educação, Teacher Lari transforma o aprendizado em algo eficiente, dinâmico e prazeroso, para todas as idades e níveis.</p>
+      <p>Ela desenvolveu a Master, seu método exclusivo de inglês, criado para resultados reais e rápidos: com dedicação, qualquer aluno pode concluir seu inglês em até 2 anos. Todo o material foi cuidadosamente planejado para o melhor desenvolvimento dos alunos, focando em inglês da vida real, aplicável no trabalho, na área da saúde, no mundo corporativo e em qualquer contexto profissional.</p>
+      <p>Formada na área da saúde e com experiência ensinando alunos universitários de enfermagem, Lari criou o primeiro curso de inglês totalmente voltado para profissionais da saúde, o HealthTalk, ministrado por quem entende do setor. Além disso, oferece cursos personalizados para executivos e profissionais de diversas áreas, todos com a mesma metodologia inovadora, prática e focada em resultados.</p>
+      <p>Com a Teacher Lari, você aprende inglês de forma personalizada, prática e transformadora, com material exclusivo e pensado para o seu sucesso!</p>
+    </div>
+
+    <div class="teacher-photo" id="teacherPhoto" style="background-image:url('images/teacher.jpg');">
+      <!-- se quiser, substitua teacher.jpg pela sua foto; se preferir background-image: linear-gradient(...) + url(...) -->
+      <div class="label">Teacher Lari</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © <span id="year"></span> MASTER English — Todos os direitos reservados
+</footer>
+
+<script>
+/* ====== CARROSSEL DE VÍDEOS (9:16, swipe, autoplay suave, pausa anterior) ====== */
+
+const videos = Array.from(document.querySelectorAll('.t-video'));
+const prevBtn = document.querySelector('.carousel-btn.prev');
+const nextBtn = document.querySelector('.carousel-btn.next');
+const indicators = Array.from(document.querySelectorAll('.indicator'));
+const phoneFrame = document.getElementById('phoneFrame');
+
+let current = 0;
+let autoplayDelay = 8000; // ms
+let autoplayTimer = null;
+let isTouching = false;
+let startX = 0;
+let deltaX = 0;
+
+/* Ensure only active video plays */
+function showIndex(index, userInitiated=false){
+  if(index < 0) index = videos.length - 1;
+  if(index >= videos.length) index = 0;
+  // stop others
+  videos.forEach((v,i)=>{
+    if(i === index){
+      v.classList.add('active');
+      // unmute when user interacts (we start muted to avoid autoplay issues)
+      // try to play; catch promise rejection silently
+      v.currentTime = 0;
+      v.muted = false; // allow sound after user interaction
+      v.play().catch(()=>{ /* autoplay policy */ });
+    } else {
+      v.classList.remove('active');
+      try{ v.pause(); }catch(e){}
+      v.currentTime = 0;
+    }
+  });
+
+  indicators.forEach((dot,i)=>dot.classList.toggle('active', i===index));
+  current = index;
+
+  // reset autoplay
+  resetAutoplay();
+}
+
+function prev(){
+  showIndex((current-1+videos.length)%videos.length, true);
+}
+function next(){
+  showIndex((current+1)%videos.length, true);
+}
+
+/* autoplay with smooth timing */
+function resetAutoplay(){
+  if(autoplayTimer) clearTimeout(autoplayTimer);
+  autoplayTimer = setTimeout(()=>{
+    next();
+  }, autoplayDelay);
+}
+
+/* Buttons */
+prevBtn.addEventListener('click', prev);
+nextBtn.addEventListener('click', next);
+
+/* indicators click */
+indicators.forEach(btn=>{
+  btn.addEventListener('click', (e)=>{
+    const idx = parseInt(e.currentTarget.dataset.index,10);
+    showIndex(idx, true);
+  });
+});
+
+/* Swipe handling for touch devices */
+phoneFrame.addEventListener('touchstart', (e)=>{
+  isTouching = true;
+  startX = e.touches[0].clientX;
+  if(autoplayTimer) clearTimeout(autoplayTimer);
+});
+phoneFrame.addEventListener('touchmove', (e)=>{
+  if(!isTouching) return;
+  deltaX = e.touches[0].clientX - startX;
+});
+phoneFrame.addEventListener('touchend', ()=>{
+  isTouching = false;
+  if(Math.abs(deltaX) > 40){
+    if(deltaX < 0) next(); else prev();
+  }
+  deltaX = 0;
+});
+
+/* mouse drag support (desktop) */
+let isDragging = false;
+let mdStart = 0;
+phoneFrame.addEventListener('mousedown',(e)=>{
+  isDragging = true; mdStart = e.clientX; if(autoplayTimer) clearTimeout(autoplayTimer);
+});
+document.addEventListener('mousemove',(e)=>{
+  if(!isDragging) return;
+});
+document.addEventListener('mouseup',(e)=>{
+  if(!isDragging) return;
+  isDragging = false;
+  const diff = e.clientX - mdStart;
+  if(Math.abs(diff) > 60){
+    if(diff < 0) next(); else prev();
+  }
+  resetAutoplay();
+});
+
+/* keyboard arrows */
+document.addEventListener('keydown',(e)=>{
+  if(e.key === 'ArrowLeft') prev();
+  if(e.key === 'ArrowRight') next();
+});
+
+/* Initialize: mute all videos to allow autoplay on some browsers, will unmute after user click */
+videos.forEach(v=>{
+  v.muted = true;
+  v.playsInline = true;
+  v.setAttribute('playsinline', '');
+});
+showIndex(0);
+
+/* Accessibility: pause videos when tab hidden */
+document.addEventListener('visibilitychange', ()=> {
+  if(document.hidden){
+    videos.forEach(v => v.pause());
+  } else {
+    // resume current
+    const active = videos[current];
+    active.play().catch(()=>{});
+  }
+});
+
+/* ====== Footer year ====== */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* === Optional: lazy load videos (if many) - not necessary for 3 small videos === */
+
+</script>
+</body>
+</html>
